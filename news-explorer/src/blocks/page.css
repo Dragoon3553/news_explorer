@@ -1,0 +1,12 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 104px 0;
+}
+
+.page__content {
+  background-image: url(../assets/page__background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

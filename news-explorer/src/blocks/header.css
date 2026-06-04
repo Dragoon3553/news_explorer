@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 19px 0 13px;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.5);
+}
+
+.header__title {
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 1);
+}
+
+.header__container {
+  display: flex;
+  margin-left: auto;
+  gap: 42px;
+}
+
+.header__home-btn {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  padding: 0;
+}
+
+.header__login-status-btn {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  width: 176px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  background-color: transparent;
+  border-radius: 100px;
+  padding: 12px;
+  height: 48px;
+  color: rgba(255, 255, 255, 1);
+}
