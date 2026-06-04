@@ -21,7 +21,6 @@ function Main() {
             id="search-input"
             name="q"
             placeholder="Enter topic"
-            required
           />
           <button className="search-btn">Search</button>
         </div>

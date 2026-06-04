@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 104px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.footer__copyright {
+  margin: 0;
+  color: rgba(182, 188, 191, 1);
+}
+
+.footer__menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer__text-container {
+  margin-right: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.footer__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.footer__github-img {
+  margin-right: 24px;
+}
+
+.footer__linkedin-img {
+}
