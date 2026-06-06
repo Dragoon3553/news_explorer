@@ -8,9 +8,11 @@ import Main from "./Main";
 import About from "./About";
 import Footer from "./Footer";
 
+// Context Imports
+import LoginContext from "../contexts/LoginContext";
+
 // CSS Styles
 import "../blocks/page.css";
-import LoginContext from "../contexts/LoginContext";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,8 +23,9 @@ function App() {
         <div className="page__content">
           <div className="page__hero">
             <Header />
-            <Main />
+            <SearchForm />
           </div>
+          <Main />
           <About />
           <Footer />
         </div>

@@ -8,7 +8,7 @@
 
 .page__hero {
   padding: 0 104px 0;
-  background-image: url(../assets/page__background.jpg);
+  background-image: url(../assets/page_background.jpg);
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   background-size: cover;

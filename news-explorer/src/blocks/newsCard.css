@@ -1,0 +1,71 @@
+.card {
+  max-width: 400px;
+  max-height: 576px;
+  border-radius: 16px;
+  position: relative;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.card__content {
+  padding: 20px 24px 24px;
+  max-width: 352px;
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.card__img {
+  max-width: 400px;
+  max-height: 272px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-size: contain;
+}
+
+.card__save-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.card__save-btn_img {
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.card__date {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.card__title {
+  margin: 12px 0 0;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.card__text {
+  margin: 16px 0 0;
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.card__source {
+  margin: 46px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
