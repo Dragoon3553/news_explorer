@@ -1,0 +1,27 @@
+.about {
+  display: flex;
+  padding: 80px 104px;
+  gap: 56px;
+}
+
+.about__img {
+  width: 464px;
+  height: 464px;
+}
+
+.about__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 51px 0 0;
+}
+
+.about__title {
+  margin: 0;
+  max-width: 600px;
+}
+
+.about__comment {
+  margin: 0;
+  max-width: 600px;
+}

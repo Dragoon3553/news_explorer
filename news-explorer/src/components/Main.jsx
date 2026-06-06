@@ -1,3 +1,8 @@
+// Component Import
+import NewsCard from "./NewsCard";
+import SearchForm from "./SearchForm";
+
+// CSS Import
 import "../blocks/main.css";
 
 function Main() {
@@ -8,23 +13,12 @@ function Main() {
         Find the latest news on any topic and save them in your personal
         account.
       </p>
-      <form
-        className="search"
-        id="search-form"
-        action="/search-results"
-        method="get"
-      >
-        <div className="search__container">
-          <input
-            className="search__input"
-            type="search"
-            id="search-input"
-            name="q"
-            placeholder="Enter topic"
-          />
-          <button className="search-btn">Search</button>
-        </div>
-      </form>
+      <SearchForm />
+      <section className="cards">
+        <ul className="cards__list">
+          <NewsCard />
+        </ul>
+      </section>
     </main>
   );
 }

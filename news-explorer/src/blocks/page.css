@@ -4,6 +4,9 @@
 .page__content {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.page__hero {
   padding: 0 104px 0;
   background-image: url(../assets/page__background.jpg);
   background-color: rgba(0, 0, 0, 0.5);
