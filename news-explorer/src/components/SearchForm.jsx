@@ -17,7 +17,9 @@ function SearchForm() {
             name="q"
             placeholder="Enter topic"
           />
-          <button className="search-btn">Search</button>
+          <button type="button" className="search-btn">
+            Search
+          </button>
         </div>
       </form>
     </section>

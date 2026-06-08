@@ -79,3 +79,7 @@
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
 }
+
+.modal__signup-text {
+  color: rgba(47, 113, 229, 1);
+}

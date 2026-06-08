@@ -17,6 +17,7 @@ import { NewsCards } from "../utils/constants";
 
 // CSS Styles
 import "../blocks/page.css";
+import SignupModal from "./SignupModal";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +42,12 @@ function App() {
           isOpen={activeModal === "login"}
           onClose={closeActiveModal}
           handleRegistrationClick={handleRegistrationClick}
+        />
+
+        <SignupModal
+          isOpen={activeModal === "signup"}
+          onClose={closeActiveModal}
+          handleLoginClick={handleLoginClick}
         />
       </div>
     </LoginContext.Provider>

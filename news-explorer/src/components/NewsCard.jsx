@@ -30,6 +30,7 @@ function NewsCard({ card }) {
         onClick={() => setIsClicked(!isClicked)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        type="button"
         className="card__save-btn"
       >
         <img

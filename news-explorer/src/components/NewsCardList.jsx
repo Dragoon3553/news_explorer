@@ -25,7 +25,11 @@ function NewsCardList({ NewsCards }) {
         ))}
       </ul>
       {visibleCount < NewsCards.length && (
-        <button className="cards__more-btn" onClick={handleLoadMore}>
+        <button
+          onClick={handleLoadMore}
+          type="button"
+          className="cards__more-btn"
+        >
           Show more
         </button>
       )}
