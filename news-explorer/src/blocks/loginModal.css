@@ -1,0 +1,12 @@
+.modal__register-btn {
+  padding: 0;
+  margin: 0 auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  max-width: max-content;
+}
+
+.modal__signup-text {
+  color: rgba(47, 113, 229, 1);
+}

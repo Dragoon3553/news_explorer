@@ -1,0 +1,81 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__content {
+  background-color: rgba(255, 255, 255, 1);
+  position: relative;
+  border-radius: 16px;
+  padding: 34px 36px 28px;
+  max-width: 430px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title {
+  margin: 0 0 22px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  padding: 0;
+  top: -46px;
+  right: -46px;
+  background: url(../assets/close.png) center no-repeat;
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+
+.modal__label {
+  color: rgba(47, 113, 229, 1);
+}
+
+.modal__input {
+  display: block;
+  margin: 9px 0 0;
+  padding: 0 0 5px;
+  border: none;
+  border-bottom: solid 1px;
+  width: 100%;
+}
+
+.modal__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal__submit-btn {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 360px;
+  padding: 20px 0;
+  border-radius: 100px;
+  border: none;
+  background-color: rgba(47, 113, 229, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}

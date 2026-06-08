@@ -7,10 +7,7 @@ import notFound from "../assets/not-found.png";
 // CSS Import
 import "../blocks/main.css";
 
-import { NewsCards } from "../utils/constants.js";
-
-function Main() {
-  const NewsCards = {};
+function Main({ NewsCards }) {
   return (
     <main className="main">
       <section className="cards">
