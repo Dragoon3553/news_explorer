@@ -1,5 +1,6 @@
-// Component Import
+// Component Imports
 import Navigation from "./Navigation";
+import SearchForm from "./SearchForm";
 
 // CSS Import
 import "../blocks/header.css";
@@ -7,8 +8,13 @@ import "../blocks/header.css";
 function Header() {
   return (
     <header className="header">
-      <h1 className="header__title">NewsExplorer</h1>
       <Navigation />
+      <h2 className="header__title">What's going on in the world?</h2>
+      <p className="header__subtitle">
+        Find the latest news on any topic and save them in your personal
+        account.
+      </p>
+      <SearchForm />
     </header>
   );
 }

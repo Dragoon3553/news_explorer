@@ -1,10 +1,23 @@
 .nav {
-  margin-left: auto;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__title {
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 1);
+  margin-right: auto;
 }
 
 .nav__list {

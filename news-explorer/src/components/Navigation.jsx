@@ -18,6 +18,7 @@ function Navigation() {
 
   return (
     <nav className="nav">
+      <h1 className="nav__title">NewsExplorer</h1>
       {isLoggedIn ? (
         <ul className="nav__list">
           <li className="nav__item">

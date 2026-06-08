@@ -3,7 +3,6 @@ import { useState } from "react";
 
 // Component Imports
 import Header from "./Header";
-import SearchForm from "./SearchForm";
 import Main from "./Main";
 import About from "./About";
 import Footer from "./Footer";
@@ -21,10 +20,7 @@ function App() {
     <LoginContext.Provider value={{ isLoggedIn }}>
       <div className="page">
         <div className="page__content">
-          <div className="page__hero">
-            <Header />
-            <SearchForm />
-          </div>
+          <Header />
           <Main />
           <About />
           <Footer />
