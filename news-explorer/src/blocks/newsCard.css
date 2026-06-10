@@ -13,7 +13,7 @@
 }
 
 .card__img {
-  max-width: 400px;
+  max-width: max-content;
   height: 272px;
   flex-shrink: 0;
   border-top-left-radius: 12px;
@@ -76,4 +76,52 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    max-width: 224px;
+    height: 420px;
+  }
+
+  .card__img {
+    max-width: max-content;
+    height: 150px;
+  }
+
+  .card__save-btn {
+    top: 8px;
+    right: 8px;
+  }
+
+  .card__content {
+    padding: 16px 16px 16px 15px;
+  }
+
+  .card__title {
+    padding-left: 1px;
+    font-size: 22px;
+    line-height: 24px;
+    min-height: 72px;
+  }
+
+  .card__text {
+    margin-top: 10px;
+    padding-left: 1px;
+    max-width: 192px;
+    max-height: 88px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card__source {
+    padding-left: 1px;
+    max-width: 192px;
+    max-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
