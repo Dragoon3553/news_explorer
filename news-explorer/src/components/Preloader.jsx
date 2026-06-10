@@ -1,3 +1,4 @@
+// CSS Import
 import "../blocks/preloader";
 
 function Preloader() {

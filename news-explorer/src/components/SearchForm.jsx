@@ -1,3 +1,4 @@
+// CSS Import
 import "../blocks/searchForm.css";
 
 function SearchForm() {

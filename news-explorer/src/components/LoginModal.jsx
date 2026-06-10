@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
+// Component Import
 import ModalWithForm from "./ModalWithForm";
 
+// CSS Import
 import "../blocks/loginModal.css";
 
 function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {

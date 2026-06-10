@@ -6,8 +6,9 @@ import Header from "./Header";
 import Main from "./Main";
 import About from "./About";
 import Footer from "./Footer";
-
+// Modals
 import LoginModal from "./LoginModal";
+import SignupModal from "./SignupModal";
 
 // Context Imports
 import LoginContext from "../contexts/LoginContext";
@@ -17,11 +18,10 @@ import { NewsCards } from "../utils/constants";
 
 // CSS Styles
 import "../blocks/page.css";
-import SignupModal from "./SignupModal";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeModal, setActiveModal] = useState("signup");
+  const [activeModal, setActiveModal] = useState("");
 
   // Modal Open Handlers
   const handleLoginClick = () => setActiveModal("login");

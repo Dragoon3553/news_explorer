@@ -7,6 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 19px 104px 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav__title {
@@ -75,4 +77,25 @@
   height: 48px;
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    padding: 14px 40px 12px;
+  }
+
+  .nav__list {
+    gap: 16px;
+  }
+
+  .nav__item {
+    font-size: 16px;
+  }
+
+  .nav__signin-btn {
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 128px;
+    height: 40px;
+  }
 }

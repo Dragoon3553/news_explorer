@@ -1,6 +1,7 @@
+// React Import
 import { useEffect, useState } from "react";
 
-//
+// Component Import
 import ModalWithForm from "./ModalWithForm";
 
 // CSS Import

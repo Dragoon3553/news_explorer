@@ -53,4 +53,58 @@ export const NewsCards = [
       "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
     footer: "NATIONAL GEOGRAPHIC",
   },
+  {
+    id: 7,
+    url: new URL("../assets/nature.png", import.meta.url).href,
+    date: "February 19, 2019",
+    title: "Nature makes you better",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    footer: "NATIONAL GEOGRAPHIC",
+  },
+  {
+    id: 8,
+    url: new URL("../assets/nature.png", import.meta.url).href,
+    date: "February 19, 2019",
+    title: "Nature makes you better",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    footer: "NATIONAL GEOGRAPHIC",
+  },
+  {
+    id: 9,
+    url: new URL("../assets/nature.png", import.meta.url).href,
+    date: "February 19, 2019",
+    title: "Nature makes you better",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    footer: "NATIONAL GEOGRAPHIC",
+  },
+  {
+    id: 10,
+    url: new URL("../assets/nature.png", import.meta.url).href,
+    date: "February 19, 2019",
+    title: "Nature makes you better",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    footer: "NATIONAL GEOGRAPHIC",
+  },
+  {
+    id: 11,
+    url: new URL("../assets/nature.png", import.meta.url).href,
+    date: "February 19, 2019",
+    title: "Nature makes you better",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    footer: "NATIONAL GEOGRAPHIC",
+  },
+  {
+    id: 12,
+    url: new URL("../assets/nature.png", import.meta.url).href,
+    date: "February 19, 2019",
+    title: "Nature makes you better",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    footer: "NATIONAL GEOGRAPHIC",
+  },
 ];
