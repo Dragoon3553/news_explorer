@@ -14,14 +14,45 @@
   flex-direction: column;
   gap: 24px;
   margin: 51px 0 0;
+  max-width: 600px;
 }
 
 .about__title {
   margin: 0;
-  max-width: 600px;
+  max-width: max-content;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
 }
 
 .about__comment {
   margin: 0;
-  max-width: 600px;
+  max-width: max-content;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 40px 40px 61px;
+    gap: 32px;
+  }
+
+  .about__img {
+    width: 232px;
+    height: 232px;
+  }
+
+  .about__container {
+    margin: 0;
+    max-width: 424px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
 }
