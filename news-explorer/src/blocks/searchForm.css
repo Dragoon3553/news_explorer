@@ -43,7 +43,7 @@
   color: rgba(255, 255, 255, 1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .search__form {
     margin-top: 48px;
     max-width: 452px;

@@ -15,8 +15,8 @@ function Header({ handleLoginClick }) {
           Find the latest news on any topic and save them in your personal
           account.
         </p>
+        <SearchForm />
       </div>
-      <SearchForm />
     </header>
   );
 }

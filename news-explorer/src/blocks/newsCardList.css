@@ -25,9 +25,10 @@
   background-color: rgba(232, 232, 232, 1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .cards__list {
     gap: 8px;
+    margin: 0 auto;
   }
 
   .cards__more-btn {
