@@ -11,6 +11,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.nav__container_opened {
+  display: none;
+}
+
 .nav__title {
   font-family: "Roboto Slab";
   font-weight: 700;
@@ -79,6 +83,16 @@
   cursor: pointer;
 }
 
+.nav__hamburger {
+  display: none;
+  background: url(../assets/menu.png) center no-repeat;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+}
+
 @media screen and (max-width: 1024px) {
   .nav {
     padding: 14px 40px 12px;
@@ -90,6 +104,7 @@
 
   .nav__item {
     font-size: 16px;
+    color: rgba(255, 255, 255, 1);
   }
 
   .nav__signin-btn {
@@ -98,4 +113,60 @@
     width: 128px;
     height: 40px;
   }
+
+  .nav__signout-btn {
+    padding: 8px;
+    gap: 13px;
+  }
+
+  .nav__btn-name {
+    padding-left: 7px;
+    min-width: 0;
+  }
 }
+
+@media screen and (max-width: 535px) {
+  .nav {
+    padding: 16px;
+  }
+
+  .nav__title {
+    font-size: 16px;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  .nav__item {
+    font-size: 18px;
+    line-height: 56px;
+    width: 100%;
+  }
+
+  .nav__signin-btn {
+    width: 100%;
+    padding: 16px 12px;
+    height: 56px;
+  }
+
+  .nav__signout-btn {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav__btn-name {
+    padding: 0;
+  }
+
+  .nav__hamburger {
+    display: block;
+  }
+}
+/* 
+* {
+  outline: 1px solid red;
+} */

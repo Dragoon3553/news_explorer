@@ -26,6 +26,10 @@
 
 .modal__title {
   margin: 0 0 22px;
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .modal__close-btn {
@@ -49,6 +53,10 @@
 
 .modal__label {
   color: rgba(47, 113, 229, 1);
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .modal__input {
@@ -58,6 +66,11 @@
   border: none;
   border-bottom: solid 1px;
   width: 100%;
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
 }
 
 .modal__buttons {
@@ -78,6 +91,12 @@
   background-color: rgba(47, 113, 229, 1);
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
+}
+
+.modal__submit-btn:disabled {
+  background-color: rgba(230, 232, 235, 1);
+  color: rgba(182, 188, 191, 1);
+  cursor: not-allowed;
 }
 
 .modal__signup-text {
