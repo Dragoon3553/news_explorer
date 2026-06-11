@@ -11,7 +11,12 @@ import NavLinks from "./NavLinks";
 // CSS Import
 import "../blocks/navigation.css";
 
-function Navigation({ handleLoginClick, handleMenuClick, isMobile }) {
+function Navigation({
+  handleLoginClick,
+  handleMenuClick,
+  isMobile,
+  isModalOpen,
+}) {
   const { isLoggedIn } = useContext(LoginContext);
 
   return (
@@ -23,7 +28,7 @@ function Navigation({ handleLoginClick, handleMenuClick, isMobile }) {
         <NavLinks handleLoginClick={handleLoginClick} />
       </div>
 
-      {isMobile && (
+      {isMobile && !isModalOpen && (
         <button
           onClick={handleMenuClick}
           type="button"

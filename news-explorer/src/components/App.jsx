@@ -49,6 +49,7 @@ function App() {
             handleLoginClick={handleLoginClick}
             handleMenuClick={handleMenuClick}
             isMobile={isMobile}
+            isModalOpen={activeModal !== ""}
           />
           <Main NewsCards={NewsCards} />
           <About />

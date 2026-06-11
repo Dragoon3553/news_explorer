@@ -102,3 +102,50 @@
 .modal__signup-text {
   color: rgba(47, 113, 229, 1);
 }
+
+@media screen and (max-width: 550px) {
+  .modal {
+    background-color: transparent;
+  }
+
+  .modal__content {
+    max-width: none;
+    width: 100%;
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 16px;
+  }
+
+  .modal__title {
+    margin-bottom: 18px;
+  }
+
+  .modal__close-btn {
+    background: url(../assets/mobile_close.png) center no-repeat;
+    top: -40px;
+    right: 16px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .modal__form {
+    gap: 23px;
+  }
+
+  .modal__label {
+    margin-bottom: 7px;
+  }
+
+  .modal__label:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .modal__buttons {
+    margin: 0 auto;
+    max-width: 288px;
+    width: 100%;
+  }
+}
