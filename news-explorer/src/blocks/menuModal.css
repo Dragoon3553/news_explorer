@@ -1,6 +1,5 @@
 .modal__content_type_menu {
   max-width: 100vw;
-  /* height: 230px; */
   position: fixed;
   top: 0;
   right: 0;
@@ -28,7 +27,4 @@
 .modal_type_menu .nav__title {
   font-size: 16px;
   margin: 0;
-}
-
-.modal_type_menu .nav__list {
 }
