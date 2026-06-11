@@ -10,7 +10,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p className="footer__copyright">
-        &copy; Drew Woods {currentYear}, Powered by News API
+        &copy; {currentYear} Supersite, Powered by News API
       </p>
       <div className="footer__menu-container">
         <div className="footer__text-container">

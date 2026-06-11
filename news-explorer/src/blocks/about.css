@@ -35,7 +35,7 @@
   line-height: 24px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1038px) {
   .about {
     padding: 40px 40px 61px;
     gap: 32px;
@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: 525px) {
+@media screen and (max-width: 550px) {
   .about {
     flex-direction: column;
     padding: 32px 16px 128px;

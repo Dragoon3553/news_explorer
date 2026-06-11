@@ -41,3 +41,23 @@
     padding: 20px 40px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding: 20px 16px 22px;
+    align-items: flex-start;
+    gap: 38px;
+  }
+
+  .footer__menu-container {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer__text-container {
+    flex-direction: column;
+    margin-right: auto;
+    gap: 26px;
+  }
+}

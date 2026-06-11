@@ -25,7 +25,7 @@
   background-color: rgba(232, 232, 232, 1);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1038px) {
   .cards__list {
     gap: 8px;
   }
@@ -35,7 +35,7 @@
   }
 }
 
-@media screen and (max-width: 525px) {
+@media screen and (max-width: 550px) {
   .cards__list {
     gap: 10px;
   }

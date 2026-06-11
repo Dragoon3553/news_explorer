@@ -48,7 +48,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1038px) {
   .main {
     padding: 40px;
   }
@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: 525px) {
+@media screen and (max-width: 550px) {
   .main {
     padding: 16px 16px 24px;
   }
