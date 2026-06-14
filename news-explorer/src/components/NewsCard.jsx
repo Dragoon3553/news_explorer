@@ -24,6 +24,17 @@ function NewsCard({ card }) {
     handleLoadMore(card);
   };
 
+  // Date Conversion
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const cardDate = new Date(card.publishedAt);
+  const formatedCardDate = cardDate.toLocaleDateString(undefined, options);
+
+  // Card Source UpperCase Conversion
   const cardSource = card.source.name.toUpperCase();
 
   return (
@@ -43,7 +54,7 @@ function NewsCard({ card }) {
         />
       </button>
       <div className="card__content">
-        <p className="card__date">{card.publishedAt}</p>
+        <p className="card__date">{formatedCardDate}</p>
         <h3 className="card__title">{card.title}</h3>
         <p className="card__text">{card.description}</p>
         <p className="card__source">{cardSource}</p>
