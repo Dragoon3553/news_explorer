@@ -7,14 +7,14 @@ import notFound from "../assets/not-found.png";
 // CSS Import
 import "../blocks/main.css";
 
-function Main({ NewsCards }) {
+function Main({ articleItems }) {
   return (
     <main className="main">
       <section className="cards">
-        {NewsCards.length > 0 ? (
+        {articleItems.length > 0 ? (
           <>
             <h2 className="cards__title">Search results</h2>
-            <NewsCardList NewsCards={NewsCards} />
+            <NewsCardList articleItems={articleItems} />
           </>
         ) : (
           <div className="not-found">

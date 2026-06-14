@@ -5,7 +5,13 @@ import SearchForm from "./SearchForm";
 // CSS Import
 import "../blocks/header.css";
 
-function Header({ handleLoginClick, handleMenuClick, isMobile, isModalOpen }) {
+function Header({
+  handleLoginClick,
+  handleMenuClick,
+  isMobile,
+  isModalOpen,
+  fetchArticles,
+}) {
   return (
     <header className="header">
       <Navigation
@@ -20,7 +26,7 @@ function Header({ handleLoginClick, handleMenuClick, isMobile, isModalOpen }) {
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <SearchForm />
+        <SearchForm fetchArticles={fetchArticles} />
       </div>
     </header>
   );

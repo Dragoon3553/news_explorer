@@ -76,6 +76,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+  color: rgba(182, 188, 191, 1);
 }
 
 @media screen and (max-width: 1038px) {

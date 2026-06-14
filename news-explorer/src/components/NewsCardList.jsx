@@ -7,12 +7,12 @@ import NewsCard from "./NewsCard";
 // CSS Import
 import "../blocks/newsCardList.css";
 
-function NewsCardList({ NewsCards }) {
+function NewsCardList({ articleItems }) {
   const initialLimit = 3;
   const itemsPerLoad = 3;
 
   const [visibleCount, setVisibleCount] = useState(initialLimit);
-  const visibleCards = NewsCards.slice(0, visibleCount);
+  const visibleCards = articleItems.slice(0, visibleCount);
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + itemsPerLoad);
@@ -22,10 +22,10 @@ function NewsCardList({ NewsCards }) {
     <>
       <ul className="cards__list">
         {visibleCards.map((card) => (
-          <NewsCard key={card.id} card={card} />
+          <NewsCard key={card.source.id} card={card} />
         ))}
       </ul>
-      {visibleCount < NewsCards.length && (
+      {visibleCount < articleItems.length && (
         <button
           onClick={handleLoadMore}
           type="button"

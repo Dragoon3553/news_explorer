@@ -1,7 +1,29 @@
+import { useState, useEffect } from "react";
+
+import { useFormWithValidation } from "../hooks/useFormWithValidation";
+
 // CSS Import
 import "../blocks/searchForm.css";
 
-function SearchForm() {
+const fromDate = new Date();
+fromDate.setDate(fromDate.getDate() - 7);
+
+const toDate = new Date();
+
+const defaultValues = {
+  q: "",
+  fromDate: fromDate,
+  toDate: toDate,
+};
+
+function SearchForm({ fetchArticles }) {
+  const { values, handleChange } = useFormWithValidation(defaultValues);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetchArticles(values);
+  }
+
   return (
     <section className="search">
       <form
@@ -9,6 +31,7 @@ function SearchForm() {
         action="/search-results"
         id="search-form"
         method="get"
+        onSubmit={handleSubmit}
       >
         <div className="search__container">
           <input
@@ -17,8 +40,10 @@ function SearchForm() {
             id="search-input"
             name="q"
             placeholder="Enter topic"
+            value={values.q}
+            onChange={handleChange}
           />
-          <button type="button" className="search-btn">
+          <button type="submit" className="search-btn">
             Search
           </button>
         </div>

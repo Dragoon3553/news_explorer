@@ -24,9 +24,11 @@ function NewsCard({ card }) {
     handleLoadMore(card);
   };
 
+  const cardSource = card.source.name.toUpperCase();
+
   return (
     <li className="card">
-      <img src={card.url} alt="card image" className="card__img" />
+      <img src={card.urlToImage} alt="card image" className="card__img" />
       <button
         onClick={() => setIsClicked(!isClicked)}
         onMouseEnter={() => setIsHovered(true)}
@@ -41,10 +43,10 @@ function NewsCard({ card }) {
         />
       </button>
       <div className="card__content">
-        <p className="card__date">{card.date}</p>
+        <p className="card__date">{card.publishedAt}</p>
         <h3 className="card__title">{card.title}</h3>
         <p className="card__text">{card.description}</p>
-        <p className="card__source">{card.footer}</p>
+        <p className="card__source">{cardSource}</p>
       </div>
     </li>
   );
