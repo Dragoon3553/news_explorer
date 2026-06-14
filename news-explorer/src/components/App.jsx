@@ -28,7 +28,7 @@ function App() {
 
   // Resize Effect
   useEffect(() => {
-    const updateIsMobile = () => setIsMobile(window.innerWidth <= 550);
+    const updateIsMobile = () => setIsMobile(window.innerWidth <= 575);
 
     updateIsMobile();
     window.addEventListener("resize", updateIsMobile);

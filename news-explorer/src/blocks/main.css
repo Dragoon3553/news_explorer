@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 575px) {
   .main {
     padding: 16px 16px 24px;
   }

@@ -21,8 +21,11 @@ function NavLinks({ handleLoginClick }) {
 
       {isLoggedIn ? (
         <>
-          <li className="nav__item">
-            <NavLink to="/saved-articles" className="nav__link">
+          <li className="nav__item nav__item_type_save">
+            <NavLink
+              to="/saved-articles"
+              className="nav__link nav__link_type_save"
+            >
               Saved articles
             </NavLink>
           </li>

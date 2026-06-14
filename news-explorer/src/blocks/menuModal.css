@@ -8,11 +8,11 @@
   top: 0;
   right: 0;
   left: 0;
+  bottom: auto;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   background-color: rgba(26, 27, 34, 1);
   padding: 16px 0 24px;
-  height: 230px;
 }
 
 .modal__close-btn_type_menu {

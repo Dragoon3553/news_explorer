@@ -103,7 +103,7 @@
   color: rgba(47, 113, 229, 1);
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 575px) {
   .modal {
     background-color: transparent;
   }
