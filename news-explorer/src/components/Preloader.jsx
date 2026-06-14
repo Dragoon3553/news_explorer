@@ -1,5 +1,5 @@
 // CSS Import
-import "../blocks/preloader";
+import "../blocks/preloader.css";
 
 function Preloader() {
   return (

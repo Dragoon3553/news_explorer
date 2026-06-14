@@ -20,10 +20,6 @@ function NewsCard({ card }) {
       ? saveActive
       : saveInactive;
 
-  const handleLoadMoreClick = () => {
-    handleLoadMore(card);
-  };
-
   // Date Conversion
   const options = {
     year: "numeric",

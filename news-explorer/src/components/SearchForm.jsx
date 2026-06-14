@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+
+// Context Import
+import SearchContext from "../contexts/SearchContext";
 
 import { useFormWithValidation } from "../hooks/useFormWithValidation";
 
@@ -17,10 +20,13 @@ const defaultValues = {
 };
 
 function SearchForm({ fetchArticles }) {
+  const { setHasSearched } = useContext(SearchContext);
+
   const { values, handleChange } = useFormWithValidation(defaultValues);
 
   function handleSubmit(e) {
     e.preventDefault();
+    setHasSearched(true);
     fetchArticles(values);
   }
 

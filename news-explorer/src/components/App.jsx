@@ -14,9 +14,10 @@ import MenuModal from "./MenuModal";
 
 // Contexts
 import LoginContext from "../contexts/LoginContext";
+import SearchContext from "../contexts/SearchContext";
 
 // Utils
-import { NewsCards, apiKey } from "../utils/constants";
+import { apiKey } from "../utils/constants";
 import { searchArticles } from "../utils/newsApi";
 
 // CSS Styles
@@ -28,14 +29,21 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchArticles = (inputValues) => {
+    setIsLoading(true);
     searchArticles(inputValues, apiKey)
       .then((data) => {
         const articles = data.articles;
         setArticleItems(articles);
+        setIsLoading(false);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error;
+        setIsLoading(false);
+      });
   };
 
   // Resize Effect
@@ -46,6 +54,12 @@ function App() {
     window.addEventListener("resize", updateIsMobile);
     return () => window.removeEventListener("resize", updateIsMobile);
   }, []);
+
+  // Modal Open Handlers
+  const handleLoginClick = () => setActiveModal("login");
+  const handleRegistrationClick = () => setActiveModal("signup");
+  const handleMenuClick = () => setActiveModal("menu");
+  const closeActiveModal = () => setActiveModal("");
 
   // Escape-Key Effect
   useEffect(() => {
@@ -74,46 +88,42 @@ function App() {
     });
   }, []);
 
-  // Modal Open Handlers
-  const handleLoginClick = () => setActiveModal("login");
-  const handleRegistrationClick = () => setActiveModal("signup");
-  const handleMenuClick = () => setActiveModal("menu");
-  const closeActiveModal = () => setActiveModal("");
-
   return (
     <LoginContext.Provider value={{ isLoggedIn }}>
-      <div className="page">
-        <div className="page__content">
-          <Header
-            handleLoginClick={handleLoginClick}
-            handleMenuClick={handleMenuClick}
-            isMobile={isMobile}
-            isModalOpen={activeModal !== ""}
-            fetchArticles={fetchArticles}
+      <SearchContext.Provider value={{ hasSearched, setHasSearched }}>
+        <div className="page">
+          <div className="page__content">
+            <Header
+              handleLoginClick={handleLoginClick}
+              handleMenuClick={handleMenuClick}
+              isMobile={isMobile}
+              isModalOpen={activeModal !== ""}
+              fetchArticles={fetchArticles}
+            />
+            <Main articleItems={articleItems} isLoading={isLoading} />
+            <About />
+            <Footer />
+          </div>
+
+          <LoginModal
+            isOpen={activeModal === "login"}
+            onClose={closeActiveModal}
+            handleRegistrationClick={handleRegistrationClick}
           />
-          <Main articleItems={articleItems} />
-          <About />
-          <Footer />
+
+          <SignupModal
+            isOpen={activeModal === "signup"}
+            onClose={closeActiveModal}
+            handleLoginClick={handleLoginClick}
+          />
+
+          <MenuModal
+            isOpen={activeModal === "menu"}
+            onClose={closeActiveModal}
+            handleLoginClick={handleLoginClick}
+          />
         </div>
-
-        <LoginModal
-          isOpen={activeModal === "login"}
-          onClose={closeActiveModal}
-          handleRegistrationClick={handleRegistrationClick}
-        />
-
-        <SignupModal
-          isOpen={activeModal === "signup"}
-          onClose={closeActiveModal}
-          handleLoginClick={handleLoginClick}
-        />
-
-        <MenuModal
-          isOpen={activeModal === "menu"}
-          onClose={closeActiveModal}
-          handleLoginClick={handleLoginClick}
-        />
-      </div>
+      </SearchContext.Provider>
     </LoginContext.Provider>
   );
 }
