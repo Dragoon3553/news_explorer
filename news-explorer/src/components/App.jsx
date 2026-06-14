@@ -35,6 +35,33 @@ function App() {
     return () => window.removeEventListener("resize", updateIsMobile);
   }, []);
 
+  // Escape-Key Effect
+  useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
+  // Overlay Close Effect
+  useEffect(() => {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => {
+      const closeOnOverlay = (e) => {
+        if (e.target === modal) {
+          closeActiveModal();
+        }
+      };
+      modal.addEventListener("click", closeOnOverlay);
+
+      return () => modal.removeEventListener("click", closeOnOverlay);
+    });
+  }, []);
+
   // Modal Open Handlers
   const handleLoginClick = () => setActiveModal("login");
   const handleRegistrationClick = () => setActiveModal("signup");
