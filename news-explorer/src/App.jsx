@@ -1,32 +1,37 @@
 // React Imports
 import { useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+
+// Pages
+import HomePage from "./pages/HomePage";
+import SavedPage from "./pages/SavedPage";
 
 // Components
-import Header from "./Header";
-import Main from "./Main";
-import About from "./About";
-import Footer from "./Footer";
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 // Modals
-import LoginModal from "./LoginModal";
-import SignupModal from "./SignupModal";
-import MenuModal from "./MenuModal";
+import LoginModal from "./components/LoginModal";
+import SignupModal from "./components/SignupModal";
+import MenuModal from "./components/MenuModal";
 
 // Contexts
-import LoginContext from "../contexts/LoginContext";
-import SearchContext from "../contexts/SearchContext";
+import LoginContext from "./contexts/LoginContext";
+import SearchContext from "./contexts/SearchContext";
 
 // Utils
-import { apiKey } from "../utils/constants";
-import { searchArticles } from "../utils/newsApi";
+import { apiKey } from "./utils/constants";
+import { searchArticles } from "./utils/newsApi";
 
 // CSS Styles
-import "../blocks/page.css";
+import "./blocks/page.css";
 
 function App() {
+  const location = useLocation();
+
   // Local States
   const [articleItems, setArticleItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -88,20 +93,44 @@ function App() {
     });
   }, []);
 
+  // Close On Navigation Effect
+  useEffect(() => {
+    if (activeModal !== "") {
+      closeActiveModal();
+    }
+  }, [location.pathname]);
+
   return (
     <LoginContext.Provider value={{ isLoggedIn }}>
       <SearchContext.Provider value={{ hasSearched, setHasSearched }}>
         <div className="page">
           <div className="page__content">
-            <Header
-              handleLoginClick={handleLoginClick}
-              handleMenuClick={handleMenuClick}
-              isMobile={isMobile}
-              isModalOpen={activeModal !== ""}
-              fetchArticles={fetchArticles}
-            />
-            <Main articleItems={articleItems} isLoading={isLoading} />
-            <About />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <HomePage
+                    handleLoginClick={handleLoginClick}
+                    handleMenuClick={handleMenuClick}
+                    isMobile={isMobile}
+                    isModalOpen={activeModal !== ""}
+                    fetchArticles={fetchArticles}
+                    articleItems={articleItems}
+                    isLoading={isLoading}
+                  />
+                }
+              />
+              <Route
+                path="/saved-articles"
+                element={
+                  <SavedPage
+                    handleMenuClick={handleMenuClick}
+                    isMobile={isMobile}
+                    isModalOpen={activeModal !== ""}
+                  />
+                }
+              />
+            </Routes>
             <Footer />
           </div>
 

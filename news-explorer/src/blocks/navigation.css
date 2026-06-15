@@ -3,16 +3,30 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: rgba(255, 255, 255, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 19px 104px 13px;
+}
+
+.header-home .nav {
+  color: rgba(255, 255, 255, 1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-saved .nav {
+  color: rgba(26, 27, 34, 1);
+  border-bottom: 1px solid rgba(209, 210, 214, 1);
 }
 
 .nav__container_opened {
   display: none;
+}
+
+.nav__logo {
+  margin-right: auto;
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav__title {
@@ -22,8 +36,6 @@
   line-height: 24px;
   margin: 0;
   padding: 0;
-  color: rgba(255, 255, 255, 1);
-  margin-right: auto;
 }
 
 .nav__list {
@@ -40,7 +52,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: rgba(255, 255, 255, 1);
+  color: inherit;
 }
 
 .nav__item:first-of-type {
@@ -48,14 +60,17 @@
 }
 
 .nav__item_type_save {
-  color: rgba(182, 188, 191, 1);
   width: 178px;
   text-align: center;
 }
 
-.nav__item:hover {
-  color: rgba(255, 255, 255, 1);
+.header-home .nav__item_type_save {
+  color: rgba(182, 188, 191, 1);
 }
+
+/* .nav__item:hover {
+  color: rgba(255, 255, 255, 1);
+} */
 
 .nav__link {
   position: relative;
@@ -71,12 +86,16 @@
   left: 50%;
   transform: translateX(-50%);
   height: 3px;
+}
+
+.header-home .nav__link.active::after {
   width: 68px;
   background-color: rgba(255, 255, 255, 1);
 }
 
 .nav__link_type_save.active::after {
   width: 178px;
+  background-color: rgba(26, 27, 34, 1);
 }
 
 .nav__signout-btn {
@@ -85,9 +104,17 @@
   padding: 12px 15px 12px 19px;
   border-radius: 100px;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.header-home .nav__signout-btn {
   border: 1px solid rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, 1);
-  cursor: pointer;
+}
+
+.header-saved .nav__signout-btn {
+  border: 1px solid rgba(26, 27, 34, 1);
+  color: rgba(26, 27, 34, 1);
 }
 
 .nav__btn-name {
@@ -108,13 +135,20 @@
 
 .nav__hamburger {
   display: none;
-  background: url(../assets/menu.png) center no-repeat;
   border: none;
   padding: 0;
   background-color: transparent;
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.header-home .nav__hamburger {
+  background: url(../assets/menu_main.png) center no-repeat;
+}
+
+.header-saved .nav__hamburger {
+  background: url(../assets/menu.png) center no-repeat;
 }
 
 @media screen and (max-width: 1038px) {
@@ -128,7 +162,7 @@
 
   .nav__item {
     font-size: 16px;
-    color: rgba(255, 255, 255, 1);
+    /* color: rgba(255, 255, 255, 1); */
   }
 
   .nav__item_type_save {
@@ -182,6 +216,7 @@
   }
 
   .nav__item {
+    color: rgba(255, 255, 255, 1);
     font-size: 18px;
     line-height: 56px;
     width: 100%;
@@ -214,6 +249,8 @@
   }
 
   .nav__signout-btn {
+    border: 1px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
     width: 100%;
     justify-content: center;
     gap: 8px;

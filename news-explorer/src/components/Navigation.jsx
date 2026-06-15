@@ -16,6 +16,7 @@ function Navigation({
   handleMenuClick,
   isMobile,
   isModalOpen,
+  variant,
 }) {
   const { isLoggedIn } = useContext(LoginContext);
 
@@ -25,7 +26,7 @@ function Navigation({
       <div
         className={`nav__container ${isMobile ? "nav__container_opened" : ""}`}
       >
-        <NavLinks handleLoginClick={handleLoginClick} />
+        <NavLinks handleLoginClick={handleLoginClick} variant={variant} />
       </div>
 
       {isMobile && !isModalOpen && (

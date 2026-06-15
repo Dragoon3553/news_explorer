@@ -11,23 +11,37 @@ function Header({
   isMobile,
   isModalOpen,
   fetchArticles,
+  variant,
 }) {
+  const isSaved = variant === "saved";
+
   return (
-    <header className="header">
+    <header className={`header ${isSaved ? "header-saved" : "header-home"}`}>
       <Navigation
         handleLoginClick={handleLoginClick}
         handleMenuClick={handleMenuClick}
         isMobile={isMobile}
         isModalOpen={isModalOpen}
+        variant={variant}
       />
-      <div className="header__container">
-        <h2 className="header__title">What's going on in the world?</h2>
-        <p className="header__subtitle">
-          Find the latest news on any topic and save them in your personal
-          account.
-        </p>
-        <SearchForm fetchArticles={fetchArticles} />
-      </div>
+      {isSaved ? (
+        <div className="header__container">
+          <p className="header__tag">Saved articles</p>
+          <h2 className="header__title">Elise, you have 5 saved articles</h2>
+          <p className="header__subtitle">
+            By keywords: Nature, Yellowstone, and 2 other
+          </p>
+        </div>
+      ) : (
+        <div className="header__container">
+          <h2 className="header__title">What's going on in the world?</h2>
+          <p className="header__subtitle">
+            Find the latest news on any topic and save them in your personal
+            account.
+          </p>
+          <SearchForm fetchArticles={fetchArticles} />
+        </div>
+      )}
     </header>
   );
 }

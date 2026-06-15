@@ -6,10 +6,13 @@ import { NavLink } from "react-router-dom";
 import LoginContext from "../contexts/LoginContext";
 
 // Image Import
-import logout from "../assets/logout_main.png";
+import logoutMain from "../assets/logout_main.png";
+import logoutSaved from "../assets/logout.png";
 
-function NavLinks({ handleLoginClick }) {
+function NavLinks({ handleLoginClick, variant }) {
   const { isLoggedIn } = useContext(LoginContext);
+
+  const isSaved = variant === "saved";
 
   return (
     <ul className="nav__list">
@@ -32,7 +35,11 @@ function NavLinks({ handleLoginClick }) {
           <li className="nav__item">
             <button type="button" className="nav__signout-btn">
               <p className="nav__btn-name">Elise</p>
-              <img src={logout} alt="signout" className="nav__btn-img" />
+              <img
+                src={isSaved ? logoutSaved : logoutMain}
+                alt="signout"
+                className="nav__btn-img"
+              />
             </button>
           </li>
         </>
