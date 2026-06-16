@@ -7,10 +7,10 @@
   font-family: "Roboto";
   font-weight: 400;
   font-size: 18px;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.5);
 }
 
-.header-home {
-  border-bottom: 1px solid rgba(196, 196, 196, 0.5);
+.page-home .header {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(0, 0, 0, 0.5);
   background-image: url(../assets/page_background.jpg);
@@ -20,8 +20,7 @@
   background-repeat: no-repeat;
 }
 
-.header-saved {
-  border-bottom: rgba(209, 210, 214, 1);
+.page-saved .header {
   background-color: rgba(255, 255, 255, 1);
   color: rgba(26, 27, 34, 1);
 }
@@ -29,6 +28,20 @@
 .header__container {
   max-width: max-content;
   margin: 80px auto 0;
+}
+
+.page-saved .header__container {
+  margin: 40px 0 0;
+  padding: 0 104px;
+}
+
+.header__tag {
+  margin: 0;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(26, 27, 34, 0.5);
 }
 
 .header__title {
@@ -39,10 +52,22 @@
   max-width: var(--max-width);
 }
 
+.page-saved .header__title {
+  margin: 28px 0 0;
+}
+
 .header__subtitle {
   line-height: 24px;
   max-width: var(--max-width);
   margin: 32px 0 0;
+}
+
+.page-saved .header__subtitle {
+  margin: 30px 0 0;
+}
+
+.header__keywords {
+  font-weight: 700;
 }
 
 @media screen and (max-width: 1038px) {
@@ -54,6 +79,11 @@
     margin-top: 38px;
   }
 
+  .page-saved .header__container {
+    margin-top: 24px;
+    padding: 0 40px;
+  }
+
   .header__title {
     max-width: 385px;
     font-size: 36px;
@@ -61,19 +91,46 @@
     margin-top: 38px;
   }
 
+  .page-saved .header__title {
+    margin-top: 16px;
+  }
+
   .header__subtitle {
     max-width: 452px;
+  }
+
+  .page-saved .header__subtitle {
+    margin-top: 16px;
   }
 }
 
 @media screen and (max-width: 575px) {
+  .page-saved .header__container {
+    margin-top: 8px;
+    padding: 0 16px;
+  }
+
+  .header__tag {
+    font-size: 12px;
+  }
+
   .header__title {
     margin: 30px auto 0;
     max-width: 285px;
   }
 
+  .page-saved .header__title {
+    margin: 16px 0 0;
+    font-size: 30px;
+    line-height: 34px;
+  }
+
   .header__subtitle {
     margin: 16px auto 0;
     max-width: 288px;
+  }
+
+  .page-saved .header__subtitle {
+    margin: 50px 0 0;
   }
 }

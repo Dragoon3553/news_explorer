@@ -9,12 +9,12 @@
   padding: 19px 104px 13px;
 }
 
-.header-home .nav {
+.page-home .nav {
   color: rgba(255, 255, 255, 1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.header-saved .nav {
+.page-saved .nav {
   color: rgba(26, 27, 34, 1);
   border-bottom: 1px solid rgba(209, 210, 214, 1);
 }
@@ -64,7 +64,7 @@
   text-align: center;
 }
 
-.header-home .nav__item_type_save {
+.page-home .nav__item_type_save {
   color: rgba(182, 188, 191, 1);
 }
 
@@ -88,7 +88,7 @@
   height: 3px;
 }
 
-.header-home .nav__link.active::after {
+.page-home .nav__link.active::after {
   width: 68px;
   background-color: rgba(255, 255, 255, 1);
 }
@@ -107,12 +107,12 @@
   cursor: pointer;
 }
 
-.header-home .nav__signout-btn {
+.page-home .nav__signout-btn {
   border: 1px solid rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, 1);
 }
 
-.header-saved .nav__signout-btn {
+.page-saved .nav__signout-btn {
   border: 1px solid rgba(26, 27, 34, 1);
   color: rgba(26, 27, 34, 1);
 }
@@ -143,11 +143,11 @@
   cursor: pointer;
 }
 
-.header-home .nav__hamburger {
+.page-home .nav__hamburger {
   background: url(../assets/menu_main.png) center no-repeat;
 }
 
-.header-saved .nav__hamburger {
+.page-saved .nav__hamburger {
   background: url(../assets/menu.png) center no-repeat;
 }
 

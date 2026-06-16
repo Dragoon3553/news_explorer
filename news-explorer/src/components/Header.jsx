@@ -16,7 +16,7 @@ function Header({
   const isSaved = variant === "saved";
 
   return (
-    <header className={`header ${isSaved ? "header-saved" : "header-home"}`}>
+    <header className="header">
       <Navigation
         handleLoginClick={handleLoginClick}
         handleMenuClick={handleMenuClick}
@@ -29,7 +29,10 @@ function Header({
           <p className="header__tag">Saved articles</p>
           <h2 className="header__title">Elise, you have 5 saved articles</h2>
           <p className="header__subtitle">
-            By keywords: Nature, Yellowstone, and 2 other
+            By keywords:{" "}
+            <span className="header__keywords">
+              Nature, Yellowstone, and 2 other
+            </span>
           </p>
         </div>
       ) : (

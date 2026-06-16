@@ -12,7 +12,7 @@ function HomePage({
   isLoading,
 }) {
   return (
-    <>
+    <div className="page-home">
       <Header
         handleLoginClick={handleLoginClick}
         handleMenuClick={handleMenuClick}
@@ -23,7 +23,7 @@ function HomePage({
       />
       <Main articleItems={articleItems} isLoading={isLoading} />
       <About />
-    </>
+    </div>
   );
 }
 

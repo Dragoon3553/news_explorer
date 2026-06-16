@@ -3,7 +3,7 @@ import SavedArticles from "../components/SavedArticles";
 
 function SavedPage({ handleMenuClick, isMobile, isModalOpen }) {
   return (
-    <>
+    <div className="page-saved">
       <Header
         handleMenuClick={handleMenuClick}
         isMobile={isMobile}
@@ -11,7 +11,7 @@ function SavedPage({ handleMenuClick, isMobile, isModalOpen }) {
         variant="saved"
       />
       <SavedArticles />
-    </>
+    </div>
   );
 }
 
