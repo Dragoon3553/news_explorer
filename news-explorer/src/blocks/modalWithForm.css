@@ -73,6 +73,13 @@
   line-height: 14px;
 }
 
+.modal__error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
 .modal__buttons {
   display: flex;
   flex-direction: column;

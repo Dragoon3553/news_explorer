@@ -20,14 +20,19 @@ const defaultValues = {
 };
 
 function SearchForm({ fetchArticles }) {
-  const { setHasSearched } = useContext(SearchContext);
+  const { hasSearched, setHasSearched } = useContext(SearchContext);
 
-  const { values, handleChange } = useFormWithValidation(defaultValues);
+  const { values, handleChange, errors, resetForm, validateAll } =
+    useFormWithValidation(defaultValues);
 
   function handleSubmit(e) {
     e.preventDefault();
     setHasSearched(true);
-    fetchArticles(values);
+    const isFormValid = validateAll();
+    if (isFormValid) {
+      fetchArticles(values);
+      resetForm();
+    }
   }
 
   return (
@@ -53,6 +58,9 @@ function SearchForm({ fetchArticles }) {
             Search
           </button>
         </div>
+        {hasSearched && errors.q && (
+          <span className="search__error">{errors.q}</span>
+        )}
       </form>
     </section>
   );

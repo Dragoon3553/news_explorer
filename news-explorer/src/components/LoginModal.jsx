@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react";
 
+// Hooks
+import { useFormWithValidation } from "../hooks/useFormWithValidation";
+
 // Component Import
 import ModalWithForm from "./ModalWithForm";
 
 // CSS Import
 import "../blocks/loginModal.css";
 
+const defaultValues = {
+  email: "",
+  password: "",
+};
+
 function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const { values, handleChange, errors, resetForm, validateAll } =
+    useFormWithValidation(defaultValues);
 
   const handleRegisterClick = () => {
     onClose();
@@ -16,20 +27,21 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
 
   useEffect(() => {
     if (isOpen) {
+      resetForm();
       setHasSubmitted(false);
     }
   }, [isOpen]);
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     setHasSubmitted(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setHasSubmitted(true);
 
-  //     const isFormValid = validateAll();
-  //     if (isFormValid) {
-  //       handleLogin(values);
-  //       setHasSubmitted(false);
-  //     }
-  //   };
+    const isFormValid = validateAll();
+    if (isFormValid) {
+      handleLogin(values);
+      setHasSubmitted(false);
+    }
+  };
 
   // Extra Button Variable
   const registerButton = (
@@ -48,6 +60,7 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
       name="sign-in"
       isOpen={isOpen}
       onClose={onClose}
+      onSubmit={handleSubmit}
       extraButton={registerButton}
     >
       <label htmlFor="email" className="modal__label">
@@ -58,7 +71,12 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
           id="login-email"
           placeholder="Enter email"
           className="modal__input"
+          value={values.email}
+          onChange={handleChange}
         />
+        {hasSubmitted && errors.email && (
+          <span className="modal__error">{errors.email}</span>
+        )}
       </label>
       <label htmlFor="password" className="modal__label">
         Password
@@ -68,7 +86,12 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
           id="login-password"
           placeholder="Enter password"
           className="modal__input"
+          value={values.password}
+          onChange={handleChange}
         />
+        {hasSubmitted && errors.password && (
+          <span className="modal__error">{errors.password}</span>
+        )}
       </label>
     </ModalWithForm>
   );

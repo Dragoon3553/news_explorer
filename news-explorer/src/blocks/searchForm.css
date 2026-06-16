@@ -31,6 +31,14 @@
   flex: 1;
 }
 
+.search__error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 14px;
+  margin-top: 5px;
+  padding-left: 17px;
+  display: block;
+}
+
 .search-btn {
   padding: 20px 56px;
   border-radius: var(--border-radius);

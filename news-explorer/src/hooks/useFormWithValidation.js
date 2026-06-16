@@ -42,6 +42,12 @@ export const useFormWithValidation = (defaultValues) => {
       }
     }
 
+    if (hasField("q")) {
+      if (isEmptyField("q")) {
+        newErrors.q = "Please enter a keyword";
+      }
+    }
+
     setErrors(newErrors);
     const valid = Object.keys(newErrors).length === 0;
     setIsValid(valid);

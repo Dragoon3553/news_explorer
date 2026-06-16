@@ -43,7 +43,7 @@ function App() {
   // Local States
   const [articleItems, setArticleItems] = useState([]);
   const [savedArticleItems, setSavedArticleItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isMobile, setIsMobile] = useState(false);
@@ -265,6 +265,7 @@ function App() {
               isOpen={activeModal === "signup"}
               onClose={closeActiveModal}
               handleLoginClick={handleLoginClick}
+              handleRegistration={handleRegistration}
             />
 
             <MenuModal
