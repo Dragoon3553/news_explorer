@@ -1,22 +1,28 @@
 // React Import
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 // Save Button Imports
 import saveInactive from "../assets/save_inactive.png";
 import saveActive from "../assets/save_active.png";
 import saveHover from "../assets/save_hover.png";
 
+// Context Import
+import CurrentUserContext from "../contexts/CurrentUserContext";
+
 // CSS Import
 import "../blocks/newsCard.css";
 
-function NewsCard({ card }) {
+function NewsCard({ card, onCardSave }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   // Move Logic to App.jsx
+  const [isSaved, setIsSaved] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const currentSaveImg = isHovered
     ? saveHover
-    : isClicked
+    : isSaved
       ? saveActive
       : saveInactive;
 
@@ -33,11 +39,20 @@ function NewsCard({ card }) {
   // Card Source UpperCase Conversion
   const cardSource = card.source.name.toUpperCase();
 
+  const handleSave = () => {
+    if (isSaved) {
+      setIsSaved(false);
+    } else {
+      onCardSave({ article: card, isSaved });
+      setIsSaved(true);
+    }
+  };
+
   return (
     <li className="card">
       <img src={card.urlToImage} alt="card image" className="card__img" />
       <button
-        onClick={() => setIsClicked(!isClicked)}
+        onClick={handleSave}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         type="button"

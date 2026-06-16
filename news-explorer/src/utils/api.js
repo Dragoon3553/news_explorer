@@ -1,0 +1,94 @@
+let savedArticles = [
+  {
+    _id: crypto.randomUUID(),
+    source: {
+      id: 1,
+      name: "The Verge",
+    },
+    title: "Some news article",
+    publishedAt: "February 19, 2019",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    urlToImage: new URL("../assets/nature.png", import.meta.url).href,
+  },
+  {
+    _id: crypto.randomUUID(),
+    source: {
+      id: 2,
+      name: "The Verge",
+    },
+    title: "Some news article",
+    publishedAt: "February 19, 2019",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    urlToImage: new URL("../assets/nature.png", import.meta.url).href,
+  },
+  {
+    _id: crypto.randomUUID(),
+    source: {
+      id: 3,
+      name: "The Verge",
+    },
+    title: "Some news article",
+    publishedAt: "February 19, 2019",
+    description:
+      "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
+    urlToImage: new URL("../assets/nature.png", import.meta.url).href,
+  },
+  //   {
+  //     _id: "65f7371e7bce9e7d331b11a0",
+  //     source: {
+  //       id: article.source.id,
+  //       name: article.source.name,
+  //     },
+  //     title: article.title,
+  //     publishedAt: article.publishedAt,
+  //     description: article.description,
+  //     urlToImage: article.urlToImage,
+  //   },
+];
+
+// getItems returns a promise that resolves to an array of article data. It can be
+// rendered in the /saved-news route.
+export function getItems() {
+  return new Promise((resolve, reject) => {
+    resolve(savedArticles);
+  });
+}
+
+// saveArticle accepts an article object as an argument and pretends to save it to
+// the DB. It returns a promise that resolves to the 'saved' article, and an _id
+// field to it. add this article to your array of saved news items.
+
+export function saveArticle(article) {
+  //   const savedArticle = {
+  //     _id: crypto.randomUUID(),
+  //     source: {
+  //       id: article.source.id,
+  //       name: article.source.name,
+  //     },
+  //     title: article.title,
+  //     publishedAt: article.publishedAt,
+  //     description: article.description,
+  //     urlToImage: article.urlToImage,
+  //   };
+
+  const savedArticle = {
+    ...article,
+    _id: crypto.randomUUID(),
+  };
+
+  savedArticles.push(savedArticle);
+
+  return new Promise((resolve, reject) => {
+    resolve(savedArticle);
+  });
+}
+
+// export function deleteArticle(articleId) {
+//   savedArticles = savedArticles.filter((article) => article._id !== articleId);
+
+//   return new Promise((resolve, reject) => {
+//     resolve();
+//   });
+// }

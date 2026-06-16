@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Main from "../components/Main";
 import SavedArticles from "../components/SavedArticles";
 
 function SavedPage({ handleMenuClick, isMobile, isModalOpen }) {
@@ -10,7 +11,9 @@ function SavedPage({ handleMenuClick, isMobile, isModalOpen }) {
         isModalOpen={isModalOpen}
         variant="saved"
       />
-      <SavedArticles />
+      <Main>
+        <SavedArticles />
+      </Main>
     </div>
   );
 }
