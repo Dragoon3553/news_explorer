@@ -8,9 +8,11 @@ import LoginContext from "../contexts/LoginContext";
 // Image Import
 import logoutMain from "../assets/logout_main.png";
 import logoutSaved from "../assets/logout.png";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
-function NavLinks({ handleLoginClick, variant }) {
+function NavLinks({ handleLoginClick, handleLogout, variant }) {
   const { isLoggedIn } = useContext(LoginContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   const isSaved = variant === "saved";
 
@@ -33,8 +35,12 @@ function NavLinks({ handleLoginClick, variant }) {
             </NavLink>
           </li>
           <li className="nav__item">
-            <button type="button" className="nav__signout-btn">
-              <p className="nav__btn-name">Elise</p>
+            <button
+              onClick={handleLogout}
+              type="button"
+              className="nav__signout-btn"
+            >
+              <p className="nav__btn-name">{currentUser.username}</p>
               <img
                 src={isSaved ? logoutSaved : logoutMain}
                 alt="signout"

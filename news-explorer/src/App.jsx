@@ -74,7 +74,7 @@ function App() {
         return auth.checkToken(res.token);
       })
       .then((user) => {
-        setCurrentUser({ _id: user._id, username: user.username });
+        setCurrentUser({ _id: user.data._id, username: user.data.username });
         setIsLoggedIn(true);
         setIsLoading(false);
         closeActiveModal();
@@ -97,6 +97,14 @@ function App() {
         handleLogin(inputValues);
       })
       .catch(console.error);
+  };
+
+  const handleLogout = () => {
+    removeToken();
+    navigate("/");
+    setCurrentUser({ _id: "", username: "" });
+    setIsLoggedIn(false);
+    // closeActiveModal();
   };
 
   const fetchArticles = (inputValues) => {
@@ -128,7 +136,7 @@ function App() {
           setIsLoggedIn(true);
           setIsLoading(false);
           const lastRoute = localStorage.getItem("lastRoute") || "/";
-          Navigate(lastRoute);
+          navigate(lastRoute);
         })
         .catch((err) => {
           setIsLoading(false);
@@ -238,6 +246,7 @@ function App() {
                       articleItems={articleItems}
                       onCardSave={handleCardSave}
                       isLoading={isLoading}
+                      handleLogout={handleLogout}
                     />
                   }
                 />
@@ -248,6 +257,7 @@ function App() {
                       handleMenuClick={handleMenuClick}
                       isMobile={isMobile}
                       isModalOpen={activeModal !== ""}
+                      handleLogout={handleLogout}
                     />
                   }
                 />

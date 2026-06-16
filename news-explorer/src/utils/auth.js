@@ -10,7 +10,7 @@ export const checkToken = (token) => {
   return new Promise((resolve, reject) => {
     resolve({
       data: {
-        name: "fake user",
+        username: "fake user",
         email: "fake@example.com",
         _id: "fake-id",
       },

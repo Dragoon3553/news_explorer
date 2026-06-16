@@ -16,6 +16,7 @@ function HomePage({
   articleItems,
   onCardSave,
   isLoading,
+  handleLogout,
 }) {
   const { hasSearched } = useContext(SearchContext);
 
@@ -27,6 +28,7 @@ function HomePage({
         isMobile={isMobile}
         isModalOpen={isModalOpen}
         fetchArticles={fetchArticles}
+        handleLogout={handleLogout}
         variant="home"
       />
 

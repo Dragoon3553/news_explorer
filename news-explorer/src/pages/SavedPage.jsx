@@ -2,13 +2,14 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 import SavedArticles from "../components/SavedArticles";
 
-function SavedPage({ handleMenuClick, isMobile, isModalOpen }) {
+function SavedPage({ handleMenuClick, isMobile, isModalOpen, handleLogout }) {
   return (
     <div className="page-saved">
       <Header
         handleMenuClick={handleMenuClick}
         isMobile={isMobile}
         isModalOpen={isModalOpen}
+        handleLogout={handleLogout}
         variant="saved"
       />
       <Main>

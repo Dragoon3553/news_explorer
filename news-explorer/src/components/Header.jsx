@@ -1,3 +1,8 @@
+import { useContext } from "react";
+
+// Context Imports
+import CurrentUserContext from "../contexts/CurrentUserContext";
+
 // Component Imports
 import Navigation from "./Navigation";
 import SearchForm from "./SearchForm";
@@ -11,8 +16,11 @@ function Header({
   isMobile,
   isModalOpen,
   fetchArticles,
+  handleLogout,
   variant,
 }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   const isSaved = variant === "saved";
 
   return (
@@ -22,12 +30,15 @@ function Header({
         handleMenuClick={handleMenuClick}
         isMobile={isMobile}
         isModalOpen={isModalOpen}
+        handleLogout={handleLogout}
         variant={variant}
       />
       {isSaved ? (
         <div className="header__container">
           <p className="header__tag">Saved articles</p>
-          <h2 className="header__title">Elise, you have 5 saved articles</h2>
+          <h2 className="header__title">
+            {currentUser.username}, you have 5 saved articles
+          </h2>
           <p className="header__subtitle">
             By keywords:{" "}
             <span className="header__keywords">
