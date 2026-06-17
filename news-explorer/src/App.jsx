@@ -50,6 +50,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [currentUser, setCurrentUser] = useState({
     _id: "",
     username: "",
@@ -109,11 +110,15 @@ function App() {
   };
 
   const fetchArticles = (inputValues) => {
+    const searchKeyword =
+      inputValues.q.charAt(0).toUpperCase() + inputValues.q.slice(1);
+    setSearchKeyword(searchKeyword);
+
     setIsLoading(true);
+
     searchArticles(inputValues, apiKey)
       .then((data) => {
-        const articles = data.articles;
-        setArticleItems(articles);
+        setArticleItems(data.articles);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -240,9 +245,14 @@ function App() {
     if (savedArticle) {
       handleArticleDelete(savedArticle);
     } else {
-      api.saveArticle(article).then((savedArticle) => {
-        setSavedArticleItems((prev) => [...prev, savedArticle]);
-      });
+      api
+        .saveArticle({
+          ...article,
+          keyword: searchKeyword,
+        })
+        .then((savedArticle) => {
+          setSavedArticleItems((prev) => [...prev, savedArticle]);
+        });
     }
   };
 

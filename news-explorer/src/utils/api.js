@@ -10,6 +10,7 @@ let savedArticles = [
     description:
       "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
     urlToImage: new URL("../assets/nature.png", import.meta.url).href,
+    keyword: "React",
   },
   {
     _id: "6a323da785aaff96d278b090",
@@ -22,6 +23,7 @@ let savedArticles = [
     description:
       "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
     urlToImage: new URL("../assets/nature.png", import.meta.url).href,
+    keyword: "React",
   },
   {
     _id: "6a323d6d84e3a5963cad916c",
@@ -34,6 +36,7 @@ let savedArticles = [
     description:
       "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
     urlToImage: new URL("../assets/nature.png", import.meta.url).href,
+    keyword: "React",
   },
 ];
 
@@ -57,15 +60,11 @@ export function saveArticle(article) {
 
   savedArticles.push(savedArticle);
 
-  return new Promise((resolve, reject) => {
-    resolve(savedArticle);
-  });
+  return Promise.resolve(savedArticle);
 }
 
 export function deleteArticle(articleId) {
   savedArticles = savedArticles.filter((article) => article._id !== articleId);
 
-  return new Promise((resolve, reject) => {
-    resolve();
-  });
+  return Promise.resolve();
 }

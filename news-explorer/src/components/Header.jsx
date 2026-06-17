@@ -26,6 +26,29 @@ function Header({
 
   const savedList = savedArticleItems?.length;
 
+  const keywords = [...new Set(savedArticleItems?.map((item) => item.keyword))];
+  const getKeywordSummary = (keywords) => {
+    if (keywords.length === 0) return "";
+
+    if (keywords.length === 1) {
+      return keywords[0];
+    }
+
+    if (keywords.length === 2) {
+      return `${keywords[0]} and ${keywords[1]}`;
+    }
+
+    if (keywords.length === 3) {
+      return `${keywords[0]}, ${keywords[1]} and ${keywords[2]}`;
+    }
+
+    return `${keywords[0]}, ${keywords[1]}, ${keywords[2]} and ${
+      keywords.length - 3
+    } others`;
+  };
+
+  const keywordText = getKeywordSummary(keywords);
+
   return (
     <header className="header">
       <Navigation
@@ -43,10 +66,7 @@ function Header({
             {currentUser.username}, you have {savedList} saved articles
           </h2>
           <p className="header__subtitle">
-            By keywords:{" "}
-            <span className="header__keywords">
-              Nature, Yellowstone, and 2 other
-            </span>
+            By keywords: <span className="header__keywords">{keywordText}</span>
           </p>
         </div>
       ) : (
