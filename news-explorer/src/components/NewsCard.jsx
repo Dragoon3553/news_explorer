@@ -6,25 +6,21 @@ import saveInactive from "../assets/save_inactive.png";
 import saveActive from "../assets/save_active.png";
 import saveHover from "../assets/save_hover.png";
 
+import deleteBtn from "../assets/delete.png";
+import deleteHover from "../assets/delete_hover.png";
+
 // Context Import
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 // CSS Import
 import "../blocks/newsCard.css";
+import LoginContext from "../contexts/LoginContext";
 
-function NewsCard({ card, onCardSave }) {
-  const { currentUser } = useContext(CurrentUserContext);
-
-  // Move Logic to App.jsx
-  const [isSaved, setIsSaved] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const currentSaveImg = isHovered
-    ? saveHover
-    : isSaved
-      ? saveActive
-      : saveInactive;
+  const { currentUser } = useContext(CurrentUserContext);
+  const { isLoggedIn } = useContext(LoginContext);
 
   // Date Conversion
   const options = {
@@ -40,30 +36,69 @@ function NewsCard({ card, onCardSave }) {
   const cardSource = card.source.name.toUpperCase();
 
   const handleSave = () => {
-    if (isSaved) {
-      setIsSaved(false);
-    } else {
-      onCardSave({ article: card, isSaved });
-      setIsSaved(true);
-    }
+    onCardSave(card);
+  };
+
+  const handleDelete = () => {
+    onDelete(card);
+  };
+
+  // Delete Image Toggling
+  const currentDeleteImg = isHovered ? deleteHover : deleteBtn;
+
+  // Save Image Toggling
+  const currentSaveImg =
+    isHovered && !isSaved ? saveHover : isSaved ? saveActive : saveInactive;
+
+  const handleHoverToggle = () => {
+    isHovered ? setIsHovered(false) : setIsHovered(true);
   };
 
   return (
     <li className="card">
       <img src={card.urlToImage} alt="card image" className="card__img" />
-      <button
-        onClick={handleSave}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        type="button"
-        className="card__save-btn"
-      >
-        <img
-          src={currentSaveImg}
-          alt={isClicked ? "Saved" : "Not Saved"}
-          className="card__save-btn_img"
-        />
-      </button>
+      {isLoggedIn && isSaved && variant ? (
+        <button
+          onClick={handleDelete}
+          type="button"
+          onMouseEnter={handleHoverToggle}
+          onMouseLeave={handleHoverToggle}
+          className="card__delete-btn"
+        >
+          <img
+            src={currentDeleteImg}
+            alt="delete image"
+            className="card__delete-img"
+          />
+        </button>
+      ) : (
+        <button
+          onClick={handleSave}
+          onMouseEnter={handleHoverToggle}
+          onMouseLeave={handleHoverToggle}
+          type="button"
+          className="card__save-btn"
+        >
+          <img
+            src={currentSaveImg}
+            alt={isSaved ? "Saved" : "Not Saved"}
+            className="card__save-btn_img"
+          />
+        </button>
+      )}
+
+      {/* {isLoggedIn && isSaved ? (
+          <button type="button" className="card__delete-btn">
+            <img src="" alt="delete image" className="card__delete-img" />
+          </button>
+        ) : (
+          <img
+            src={currentSaveImg}
+            alt={isClicked ? "Saved" : "Not Saved"}
+            className="card__save-btn_img"
+          />
+        )} */}
+
       <div className="card__content">
         <p className="card__date">{formatedCardDate}</p>
         <h3 className="card__title">{card.title}</h3>

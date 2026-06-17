@@ -14,7 +14,7 @@ function NavLinks({ handleLoginClick, handleLogout, variant }) {
   const { isLoggedIn } = useContext(LoginContext);
   const { currentUser } = useContext(CurrentUserContext);
 
-  const isSaved = variant === "saved";
+  const saved = variant === "saved";
 
   return (
     <ul className="nav__list">
@@ -42,7 +42,7 @@ function NavLinks({ handleLoginClick, handleLogout, variant }) {
             >
               <p className="nav__btn-name">{currentUser.username}</p>
               <img
-                src={isSaved ? logoutSaved : logoutMain}
+                src={saved ? logoutSaved : logoutMain}
                 alt="signout"
                 className="nav__btn-img"
               />

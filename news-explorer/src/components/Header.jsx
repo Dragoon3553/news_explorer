@@ -21,7 +21,7 @@ function Header({
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
-  const isSaved = variant === "saved";
+  const saved = variant === "saved";
 
   return (
     <header className="header">
@@ -33,7 +33,7 @@ function Header({
         handleLogout={handleLogout}
         variant={variant}
       />
-      {isSaved ? (
+      {saved ? (
         <div className="header__container">
           <p className="header__tag">Saved articles</p>
           <h2 className="header__title">

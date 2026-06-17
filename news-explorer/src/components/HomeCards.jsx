@@ -4,7 +4,7 @@ import Preloader from "./Preloader";
 
 import notFound from "../assets/not-found.png";
 
-function HomeCards({ articleItems, onCardSave, isLoading }) {
+function HomeCards({ articleItems, onCardSave, isLoading, savedArticleItems }) {
   return (
     <section className="cards">
       {isLoading === true ? (
@@ -12,7 +12,11 @@ function HomeCards({ articleItems, onCardSave, isLoading }) {
       ) : articleItems.length > 0 ? (
         <>
           <h2 className="cards__title">Search results</h2>
-          <NewsCardList articleItems={articleItems} onCardSave={onCardSave} />
+          <NewsCardList
+            articleItems={articleItems}
+            onCardSave={onCardSave}
+            savedArticleItems={savedArticleItems}
+          />
         </>
       ) : (
         <div className="not-found">

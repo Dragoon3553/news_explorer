@@ -7,7 +7,7 @@ import NewsCard from "./NewsCard";
 // CSS Import
 import "../blocks/newsCardList.css";
 
-function NewsCardList({ articleItems, onCardSave }) {
+function NewsCardList({ articleItems, onCardSave, savedArticleItems }) {
   const initialLimit = 3;
   const itemsPerLoad = 3;
 
@@ -21,9 +21,19 @@ function NewsCardList({ articleItems, onCardSave }) {
   return (
     <>
       <ul className="cards__list">
-        {visibleCards.map((card) => (
-          <NewsCard key={card.source.id} card={card} onCardSave={onCardSave} />
-        ))}
+        {visibleCards.map((card) => {
+          const isSaved = savedArticleItems.some(
+            (saved) => saved.url === card.url,
+          );
+          return (
+            <NewsCard
+              key={card.url}
+              card={card}
+              onCardSave={onCardSave}
+              isSaved={isSaved}
+            />
+          );
+        })}
       </ul>
       {visibleCount < articleItems.length && (
         <button

@@ -1,15 +1,13 @@
 import SavedCardList from "./SavedCardList";
 
-function SavedArticles({ articleItems }) {
-  // const filteredItems = articleItems.filter((item) => {
-  //   if (isClicked === true) {
-  //     return item;
-  //   }
-  // });
-
+function SavedArticles({ savedArticleItems, onDelete, variant }) {
   return (
     <section className="cards">
-      <SavedCardList />
+      <SavedCardList
+        savedArticleItems={savedArticleItems}
+        onDelete={onDelete}
+        variant={variant}
+      />
     </section>
   );
 }

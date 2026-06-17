@@ -47,7 +47,7 @@ function SearchForm({ fetchArticles }) {
         <div className="search__container">
           <input
             className="search__input"
-            type="search"
+            type="text"
             id="search-input"
             name="q"
             placeholder="Enter topic"

@@ -104,7 +104,6 @@ function App() {
     navigate("/");
     setCurrentUser({ _id: "", username: "" });
     setIsLoggedIn(false);
-    // closeActiveModal();
   };
 
   const fetchArticles = (inputValues) => {
@@ -210,22 +209,37 @@ function App() {
     }
   }, [location.pathname]);
 
-  const handleCardSave = ({ article, isSaved }) => {
+  const handleArticleDelete = (article) => {
     const token = getToken();
-
-    if (!isSaved) {
-      api
-        .saveArticle(article)
-        .then((savedArticle) => {
-          console.log(savedArticle);
-          setSavedArticleItems((prev) => [savedArticle, ...prev]);
-          console.log(savedArticleItems);
-        })
-        .catch(console.error);
+    if (!token) {
+      console.error("No authentication token found");
+      return;
     }
+
+    api
+      .deleteArticle(article._id)
+      .then(() => {
+        setSavedArticleItems((prev) =>
+          prev.filter((item) => item._id !== article._id),
+        );
+      })
+      .catch(console.error);
   };
 
-  const handleArticleDelete = () => {};
+  const handleSaveToggle = (article) => {
+    const token = getToken();
+    const savedArticle = savedArticleItems.find(
+      (item) => item.url === article.url,
+    );
+
+    if (savedArticle) {
+      handleArticleDelete(savedArticle);
+    } else {
+      api.saveArticle(article).then((savedArticle) => {
+        setSavedArticleItems((prev) => [...prev, savedArticle]);
+      });
+    }
+  };
 
   return (
     <LoginContext.Provider value={{ isLoggedIn }}>
@@ -244,9 +258,10 @@ function App() {
                       isModalOpen={activeModal !== ""}
                       fetchArticles={fetchArticles}
                       articleItems={articleItems}
-                      onCardSave={handleCardSave}
+                      onCardSave={handleSaveToggle}
                       isLoading={isLoading}
                       handleLogout={handleLogout}
+                      savedArticleItems={savedArticleItems}
                     />
                   }
                 />
@@ -258,6 +273,8 @@ function App() {
                       isMobile={isMobile}
                       isModalOpen={activeModal !== ""}
                       handleLogout={handleLogout}
+                      savedArticleItems={savedArticleItems}
+                      onDelete={handleArticleDelete}
                     />
                   }
                 />

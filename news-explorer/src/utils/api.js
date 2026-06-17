@@ -1,6 +1,6 @@
 let savedArticles = [
   {
-    _id: crypto.randomUUID(),
+    _id: "6a323db9069308eedddb0335",
     source: {
       id: 1,
       name: "The Verge",
@@ -12,7 +12,7 @@ let savedArticles = [
     urlToImage: new URL("../assets/nature.png", import.meta.url).href,
   },
   {
-    _id: crypto.randomUUID(),
+    _id: "6a323da785aaff96d278b090",
     source: {
       id: 2,
       name: "The Verge",
@@ -24,7 +24,7 @@ let savedArticles = [
     urlToImage: new URL("../assets/nature.png", import.meta.url).href,
   },
   {
-    _id: crypto.randomUUID(),
+    _id: "6a323d6d84e3a5963cad916c",
     source: {
       id: 3,
       name: "The Verge",
@@ -35,17 +35,6 @@ let savedArticles = [
       "We all know how good nature can make us feel. We have known it for millennia: the sound of the ocean, the scents of a forest, the way dappled sunlight dances through the leaves.",
     urlToImage: new URL("../assets/nature.png", import.meta.url).href,
   },
-  //   {
-  //     _id: "65f7371e7bce9e7d331b11a0",
-  //     source: {
-  //       id: article.source.id,
-  //       name: article.source.name,
-  //     },
-  //     title: article.title,
-  //     publishedAt: article.publishedAt,
-  //     description: article.description,
-  //     urlToImage: article.urlToImage,
-  //   },
 ];
 
 // getItems returns a promise that resolves to an array of article data. It can be
@@ -61,21 +50,9 @@ export function getItems() {
 // field to it. add this article to your array of saved news items.
 
 export function saveArticle(article) {
-  //   const savedArticle = {
-  //     _id: crypto.randomUUID(),
-  //     source: {
-  //       id: article.source.id,
-  //       name: article.source.name,
-  //     },
-  //     title: article.title,
-  //     publishedAt: article.publishedAt,
-  //     description: article.description,
-  //     urlToImage: article.urlToImage,
-  //   };
-
   const savedArticle = {
     ...article,
-    _id: crypto.randomUUID(),
+    _id: article.urlToImage,
   };
 
   savedArticles.push(savedArticle);
@@ -85,10 +62,10 @@ export function saveArticle(article) {
   });
 }
 
-// export function deleteArticle(articleId) {
-//   savedArticles = savedArticles.filter((article) => article._id !== articleId);
+export function deleteArticle(articleId) {
+  savedArticles = savedArticles.filter((article) => article._id !== articleId);
 
-//   return new Promise((resolve, reject) => {
-//     resolve();
-//   });
-// }
+  return new Promise((resolve, reject) => {
+    resolve();
+  });
+}
