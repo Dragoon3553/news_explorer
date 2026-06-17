@@ -17,6 +17,7 @@ function SavedPage({
         isMobile={isMobile}
         isModalOpen={isModalOpen}
         handleLogout={handleLogout}
+        savedArticleItems={savedArticleItems}
         variant="saved"
       />
       <Main>

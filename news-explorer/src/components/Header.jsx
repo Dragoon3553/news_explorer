@@ -17,11 +17,14 @@ function Header({
   isModalOpen,
   fetchArticles,
   handleLogout,
+  savedArticleItems,
   variant,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   const saved = variant === "saved";
+
+  const savedList = savedArticleItems?.length;
 
   return (
     <header className="header">
@@ -37,7 +40,7 @@ function Header({
         <div className="header__container">
           <p className="header__tag">Saved articles</p>
           <h2 className="header__title">
-            {currentUser.username}, you have 5 saved articles
+            {currentUser.username}, you have {savedList} saved articles
           </h2>
           <p className="header__subtitle">
             By keywords:{" "}

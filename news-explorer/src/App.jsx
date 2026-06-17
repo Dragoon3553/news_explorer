@@ -39,6 +39,7 @@ function App() {
   const setToken = (token) => localStorage.setItem(TOKEN_KEY, token);
   const getToken = () => localStorage.getItem(TOKEN_KEY);
   const removeToken = () => localStorage.removeItem(TOKEN_KEY);
+  const removeSession = () => localStorage.removeItem("session");
 
   // Local States
   const [articleItems, setArticleItems] = useState([]);
@@ -68,7 +69,7 @@ function App() {
     }
 
     auth
-      .authorize({ email, password })
+      .authorize(email, password)
       .then((res) => {
         setToken(res.token);
         return auth.checkToken(res.token);
@@ -92,15 +93,16 @@ function App() {
       password: inputValues.password,
     };
     auth
-      .authorize(newUserData)
+      .register(newUserData)
       .then((res) => {
-        handleLogin(inputValues);
+        return handleLogin(inputValues);
       })
       .catch(console.error);
   };
 
   const handleLogout = () => {
     removeToken();
+    removeSession();
     navigate("/");
     setCurrentUser({ _id: "", username: "" });
     setIsLoggedIn(false);
@@ -127,10 +129,10 @@ function App() {
     if (token) {
       auth
         .checkToken(token)
-        .then((user) => {
+        .then((res) => {
           setCurrentUser({
-            _id: user._id,
-            username: user.username,
+            _id: res.data._id,
+            username: res.data.username,
           });
           setIsLoggedIn(true);
           setIsLoading(false);
@@ -138,8 +140,11 @@ function App() {
           navigate(lastRoute);
         })
         .catch((err) => {
-          setIsLoading(false);
           console.error(err);
+          removeToken();
+          setIsLoading(false);
+          setIsLoggedIn(false);
+          setCurrentUser({ _id: "", username: "" });
         });
     }
 
