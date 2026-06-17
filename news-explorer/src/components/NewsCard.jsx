@@ -48,10 +48,6 @@ function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
   const currentSaveImg =
     isHovered && !isSaved ? saveHover : isSaved ? saveActive : saveInactive;
 
-  const handleHoverToggle = () => {
-    isHovered ? setIsHovered(false) : setIsHovered(true);
-  };
-
   return (
     <li className="card">
       <img src={card.urlToImage} alt="card image" className="card__img" />
@@ -59,8 +55,8 @@ function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
         <button
           onClick={handleDelete}
           type="button"
-          onMouseEnter={handleHoverToggle}
-          onMouseLeave={handleHoverToggle}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           className="card__delete-btn"
         >
           <img
@@ -72,8 +68,8 @@ function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
       ) : (
         <button
           onClick={handleSave}
-          onMouseEnter={handleHoverToggle}
-          onMouseLeave={handleHoverToggle}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           type="button"
           className="card__save-btn"
         >

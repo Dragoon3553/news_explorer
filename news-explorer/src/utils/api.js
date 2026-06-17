@@ -43,7 +43,7 @@ let savedArticles = [
 // getItems returns a promise that resolves to an array of article data. It can be
 // rendered in the /saved-news route.
 export function getItems() {
-  return Promise.resolve(savedArticles);
+  return Promise.resolve([...savedArticles]);
 }
 
 // saveArticle accepts an article object as an argument and pretends to save it to
@@ -53,7 +53,7 @@ export function getItems() {
 export function saveArticle(article) {
   const savedArticle = {
     ...article,
-    _id: article.urlToImage,
+    _id: article.url,
   };
 
   savedArticles.push(savedArticle);

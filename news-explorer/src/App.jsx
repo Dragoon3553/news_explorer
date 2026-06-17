@@ -27,6 +27,7 @@ import * as api from "./utils/api";
 
 // CSS Styles
 import "./blocks/page.css";
+import SavedArticles from "./components/SavedArticles";
 
 function App() {
   const navigate = useNavigate();
@@ -234,22 +235,24 @@ function App() {
   };
 
   const handleSaveToggle = (article) => {
-    const savedArticle = savedArticleItems.find(
+    const alreadySaved = savedArticleItems.find(
       (item) => item.url === article.url,
     );
 
-    if (savedArticle) {
-      handleArticleDelete(savedArticle);
-    } else {
-      api
-        .saveArticle({
-          ...article,
-          keyword: searchKeyword,
-        })
-        .then((savedArticle) => {
-          setSavedArticleItems((prev) => [...prev, savedArticle]);
-        });
+    if (alreadySaved) {
+      handleArticleDelete(alreadySaved);
+      return;
     }
+
+    api
+      .saveArticle({
+        ...article,
+        keyword: searchKeyword,
+      })
+      .then((savedArticle) => {
+        setSavedArticleItems((prev) => [...prev, savedArticle]);
+      })
+      .catch(console.error);
   };
 
   return (
