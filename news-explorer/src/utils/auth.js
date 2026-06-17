@@ -1,5 +1,5 @@
+export const TOKEN_KEY = "mock_token";
 const USERS_KEY = "mock_users";
-const TOKEN_KEY = "mock_token";
 
 const getUsers = () => {
   const data = localStorage.getItem(USERS_KEY);

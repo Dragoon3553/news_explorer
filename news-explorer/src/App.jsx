@@ -8,6 +8,7 @@ import SavedPage from "./pages/SavedPage";
 
 // Components
 import Footer from "./components/Footer";
+import SavedArticles from "./components/SavedArticles";
 
 // Modals
 import LoginModal from "./components/LoginModal";
@@ -27,7 +28,6 @@ import * as api from "./utils/api";
 
 // CSS Styles
 import "./blocks/page.css";
-import SavedArticles from "./components/SavedArticles";
 
 function App() {
   const navigate = useNavigate();
@@ -35,11 +35,35 @@ function App() {
   const hasMounted = useRef(false);
 
   // Token // to go to token.js
-  const TOKEN_KEY = "jwt";
-  const setToken = (token) => localStorage.setItem(TOKEN_KEY, token);
-  const getToken = () => localStorage.getItem(TOKEN_KEY);
-  const removeToken = () => localStorage.removeItem(TOKEN_KEY);
-  const removeSession = () => localStorage.removeItem("session");
+  const setToken = (token) => {
+    const rawSession = localStorage.getItem(auth.TOKEN_KEY);
+    const session = rawSession ? JSON.parse(rawSession) : {};
+
+    localStorage.setItem(
+      auth.TOKEN_KEY,
+      JSON.stringify({ ...session, token }),
+    );
+  };
+
+  const getToken = () => {
+    const rawSession = localStorage.getItem(auth.TOKEN_KEY);
+    if (!rawSession) return null;
+
+    try {
+      return JSON.parse(rawSession).token;
+    } catch (err) {
+      console.error("Invalid auth session format", err);
+      return null;
+    }
+  };
+
+  const removeToken = () => {
+    localStorage.removeItem(auth.TOKEN_KEY);
+  };
+  const removeSession = () => {
+    localStorage.removeItem("session");
+    localStorage.removeItem(auth.TOKEN_KEY);
+  };
 
   // Local States
   const [articleItems, setArticleItems] = useState([]);
@@ -300,6 +324,7 @@ function App() {
               isOpen={activeModal === "login"}
               onClose={closeActiveModal}
               handleRegistrationClick={handleRegistrationClick}
+              handleLogin={handleLogin}
               errorMessage={errorMessage}
             />
 
