@@ -10,16 +10,14 @@ import deleteBtn from "../assets/delete.png";
 import deleteHover from "../assets/delete_hover.png";
 
 // Context Import
-import CurrentUserContext from "../contexts/CurrentUserContext";
+import LoginContext from "../contexts/LoginContext";
 
 // CSS Import
 import "../blocks/newsCard.css";
-import LoginContext from "../contexts/LoginContext";
 
 function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const { currentUser } = useContext(CurrentUserContext);
   const { isLoggedIn } = useContext(LoginContext);
 
   // Date Conversion
@@ -86,18 +84,6 @@ function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
           />
         </button>
       )}
-
-      {/* {isLoggedIn && isSaved ? (
-          <button type="button" className="card__delete-btn">
-            <img src="" alt="delete image" className="card__delete-img" />
-          </button>
-        ) : (
-          <img
-            src={currentSaveImg}
-            alt={isClicked ? "Saved" : "Not Saved"}
-            className="card__save-btn_img"
-          />
-        )} */}
 
       <div className="card__content">
         <p className="card__date">{formatedCardDate}</p>

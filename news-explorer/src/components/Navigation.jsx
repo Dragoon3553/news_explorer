@@ -1,9 +1,3 @@
-// React Import
-import { useContext } from "react";
-
-// Context Import
-import LoginContext from "../contexts/LoginContext";
-
 // Component Imports
 import Logo from "./Logo";
 import NavLinks from "./NavLinks";
@@ -19,8 +13,6 @@ function Navigation({
   handleLogout,
   variant,
 }) {
-  const { isLoggedIn } = useContext(LoginContext);
-
   return (
     <nav className="nav">
       <Logo />

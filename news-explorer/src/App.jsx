@@ -7,7 +7,6 @@ import HomePage from "./pages/HomePage";
 import SavedPage from "./pages/SavedPage";
 
 // Components
-import About from "./components/About";
 import Footer from "./components/Footer";
 
 // Modals
@@ -49,7 +48,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(!!getToken());
   const [searchKeyword, setSearchKeyword] = useState("");
   const [currentUser, setCurrentUser] = useState({
     _id: "",
@@ -95,7 +94,7 @@ function App() {
     };
     auth
       .register(newUserData)
-      .then((res) => {
+      .then(() => {
         return handleLogin(inputValues);
       })
       .catch(console.error);
@@ -104,6 +103,7 @@ function App() {
   const handleLogout = () => {
     removeToken();
     removeSession();
+    closeActiveModal();
     navigate("/");
     setCurrentUser({ _id: "", username: "" });
     setIsLoggedIn(false);
@@ -121,8 +121,8 @@ function App() {
         setArticleItems(data.articles);
         setIsLoading(false);
       })
-      .catch((error) => {
-        console.error;
+      .catch((err) => {
+        console.errror(err);
         setIsLoading(false);
       });
   };
@@ -153,9 +153,7 @@ function App() {
         });
     }
 
-    if (!token) {
-      setIsLoading(false);
-    }
+    if (!token) return;
 
     api
       .getItems()
@@ -165,7 +163,7 @@ function App() {
       .catch((error) => {
         console.error("Failed to fetch articles:", error);
       });
-  }, []);
+  }, [navigate]);
 
   // Route Path Save Effect
   useEffect(() => {
@@ -214,9 +212,8 @@ function App() {
 
   // Close On Navigation Effect
   useEffect(() => {
-    if (activeModal !== "") {
-      closeActiveModal();
-    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    closeActiveModal();
   }, [location.pathname]);
 
   const handleArticleDelete = (article) => {
@@ -237,7 +234,6 @@ function App() {
   };
 
   const handleSaveToggle = (article) => {
-    const token = getToken();
     const savedArticle = savedArticleItems.find(
       (item) => item.url === article.url,
     );
@@ -301,6 +297,7 @@ function App() {
               isOpen={activeModal === "login"}
               onClose={closeActiveModal}
               handleRegistrationClick={handleRegistrationClick}
+              errorMessage={errorMessage}
             />
 
             <SignupModal

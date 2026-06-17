@@ -1,9 +1,3 @@
-// React Import
-import { useContext } from "react";
-
-// Context Imports
-import LoginContext from "../contexts/LoginContext";
-
 // Component Imports
 import Logo from "./Logo";
 import NavLinks from "./NavLinks";
@@ -12,8 +6,6 @@ import NavLinks from "./NavLinks";
 import "../blocks/menuModal.css";
 
 function MenuModal({ isOpen, onClose, handleLoginClick }) {
-  const { isLoggedIn } = useContext(LoginContext);
-
   return (
     <div className={`modal modal_type_menu ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_menu">

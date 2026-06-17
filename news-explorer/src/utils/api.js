@@ -43,9 +43,7 @@ let savedArticles = [
 // getItems returns a promise that resolves to an array of article data. It can be
 // rendered in the /saved-news route.
 export function getItems() {
-  return new Promise((resolve, reject) => {
-    resolve(savedArticles);
-  });
+  return Promise.resolve(savedArticles);
 }
 
 // saveArticle accepts an article object as an argument and pretends to save it to

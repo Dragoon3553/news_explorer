@@ -1,5 +1,5 @@
 // React Import
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Hooks
 import { useFormWithValidation } from "../hooks/useFormWithValidation";
@@ -32,12 +32,11 @@ function SignupModal({
     handleLoginClick();
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      resetForm();
-      setHasSubmitted(false);
-    }
-  }, [isOpen]);
+  const handleModalClose = () => {
+    resetForm();
+    setHasSubmitted(false);
+    onClose();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +62,7 @@ function SignupModal({
       name="sign-up"
       buttonText="Sign up"
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={handleModalClose}
       onSubmit={handleSubmit}
       extraButton={loginButton}
     >

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Hooks
 import { useFormWithValidation } from "../hooks/useFormWithValidation";
@@ -14,7 +14,13 @@ const defaultValues = {
   password: "",
 };
 
-function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
+function LoginModal({
+  isOpen,
+  onClose,
+  handleRegistrationClick,
+  handleLogin,
+  errorMessage,
+}) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const { values, handleChange, errors, resetForm, validateAll } =
@@ -25,12 +31,11 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
     handleRegistrationClick();
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      resetForm();
-      setHasSubmitted(false);
-    }
-  }, [isOpen]);
+  const handleModalClose = () => {
+    resetForm();
+    setHasSubmitted(false);
+    onClose();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +64,7 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
       title="Sign in"
       name="sign-in"
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={handleModalClose}
       onSubmit={handleSubmit}
       extraButton={registerButton}
     >
@@ -92,6 +97,7 @@ function LoginModal({ isOpen, onClose, handleRegistrationClick, handleLogin }) {
         {hasSubmitted && errors.password && (
           <span className="modal__error">{errors.password}</span>
         )}
+        {errorMessage}
       </label>
     </ModalWithForm>
   );
