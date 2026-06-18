@@ -356,6 +356,7 @@ function App() {
               isOpen={activeModal === "menu"}
               onClose={closeActiveModal}
               handleLoginClick={handleLoginClick}
+              handleLogout={handleLogout}
             />
           </div>
         </SearchContext.Provider>

@@ -5,7 +5,7 @@ import NavLinks from "./NavLinks";
 // CSS Import
 import "../blocks/menuModal.css";
 
-function MenuModal({ isOpen, onClose, handleLoginClick }) {
+function MenuModal({ isOpen, onClose, handleLoginClick, handleLogout }) {
   return (
     <div className={`modal modal_type_menu ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_menu">
@@ -17,7 +17,10 @@ function MenuModal({ isOpen, onClose, handleLoginClick }) {
         <div className="modal__header">
           <Logo />
         </div>
-        <NavLinks handleLoginClick={handleLoginClick} />
+        <NavLinks
+          handleLoginClick={handleLoginClick}
+          handleLogout={handleLogout}
+        />
       </div>
     </div>
   );
