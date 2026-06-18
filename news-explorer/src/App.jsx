@@ -34,15 +34,12 @@ function App() {
   const location = useLocation();
   const hasMounted = useRef(false);
 
-  // Token // to go to token.js
+  // Token
   const setToken = (token) => {
     const rawSession = localStorage.getItem(auth.TOKEN_KEY);
     const session = rawSession ? JSON.parse(rawSession) : {};
 
-    localStorage.setItem(
-      auth.TOKEN_KEY,
-      JSON.stringify({ ...session, token }),
-    );
+    localStorage.setItem(auth.TOKEN_KEY, JSON.stringify({ ...session, token }));
   };
 
   const getToken = () => {
@@ -68,6 +65,7 @@ function App() {
   // Local States
   const [articleItems, setArticleItems] = useState([]);
   const [savedArticleItems, setSavedArticleItems] = useState([]);
+  // const [selectedArticle, setSelectedArticle] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -241,8 +239,10 @@ function App() {
     closeActiveModal();
   }, [location.pathname]);
 
-  const handleArticleDelete = (article) => {
+  const handleArticleDelete = (e, article) => {
+    e.stopPropagation();
     const token = getToken();
+
     if (!token) {
       console.error("No authentication token found");
       return;
@@ -258,7 +258,8 @@ function App() {
       .catch(console.error);
   };
 
-  const handleSaveToggle = (article) => {
+  const handleSaveToggle = (e, article) => {
+    e.stopPropagation();
     const alreadySaved = savedArticleItems.find(
       (item) => item.url === article.url,
     );
@@ -277,6 +278,12 @@ function App() {
         setSavedArticleItems((prev) => [...prev, savedArticle]);
       })
       .catch(console.error);
+  };
+
+  const handleArticleClick = (article) => {
+    article.url
+      ? window.open(article.url, "_blank", "noreferrer")
+      : window.open(article.urlToImage, "_blank", "noreferrer");
   };
 
   return (
@@ -300,6 +307,7 @@ function App() {
                       isLoading={isLoading}
                       handleLogout={handleLogout}
                       savedArticleItems={savedArticleItems}
+                      onCardClick={handleArticleClick}
                     />
                   }
                 />
@@ -313,6 +321,7 @@ function App() {
                       handleLogout={handleLogout}
                       savedArticleItems={savedArticleItems}
                       onDelete={handleArticleDelete}
+                      onCardClick={handleArticleClick}
                     />
                   }
                 />

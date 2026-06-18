@@ -9,6 +9,7 @@ function SavedPage({
   handleLogout,
   savedArticleItems,
   onDelete,
+  onCardClick,
 }) {
   return (
     <div className="page-saved">
@@ -24,6 +25,7 @@ function SavedPage({
         <SavedArticles
           savedArticleItems={savedArticleItems}
           onDelete={onDelete}
+          onCardClick={onCardClick}
           variant="saved"
         />
       </Main>

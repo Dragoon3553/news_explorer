@@ -4,7 +4,13 @@ import Preloader from "./Preloader";
 
 import notFound from "../assets/not-found.png";
 
-function HomeCards({ articleItems, onCardSave, isLoading, savedArticleItems }) {
+function HomeCards({
+  articleItems,
+  onCardSave,
+  isLoading,
+  savedArticleItems,
+  onCardClick,
+}) {
   return (
     <section className="cards">
       {isLoading === true ? (
@@ -16,6 +22,7 @@ function HomeCards({ articleItems, onCardSave, isLoading, savedArticleItems }) {
             articleItems={articleItems}
             onCardSave={onCardSave}
             savedArticleItems={savedArticleItems}
+            onCardClick={onCardClick}
           />
         </>
       ) : (

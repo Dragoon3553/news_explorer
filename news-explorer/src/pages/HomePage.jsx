@@ -18,6 +18,7 @@ function HomePage({
   isLoading,
   handleLogout,
   savedArticleItems,
+  onCardClick,
 }) {
   const { hasSearched } = useContext(SearchContext);
 
@@ -42,6 +43,7 @@ function HomePage({
             onCardSave={onCardSave}
             isLoading={isLoading}
             savedArticleItems={savedArticleItems}
+            onCardClick={onCardClick}
           />
         </Main>
       )}

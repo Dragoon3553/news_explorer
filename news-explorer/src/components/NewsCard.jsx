@@ -15,7 +15,14 @@ import LoginContext from "../contexts/LoginContext";
 // CSS Import
 import "../blocks/newsCard.css";
 
-function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
+function NewsCard({
+  card,
+  onCardSave,
+  isSaved,
+  onDelete,
+  onCardClick,
+  variant,
+}) {
   const [isHovered, setIsHovered] = useState(false);
 
   const { isLoggedIn } = useContext(LoginContext);
@@ -33,12 +40,15 @@ function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
   // Card Source UpperCase Conversion
   const cardSource = card.source.name.toUpperCase();
 
-  const handleSave = () => {
-    onCardSave(card);
+  const handleSave = (e) => {
+    onCardSave(e, card);
   };
 
-  const handleDelete = () => {
-    onDelete(card);
+  const handleDelete = (e) => {
+    onDelete(e, card);
+  };
+  const handleCardClick = () => {
+    onCardClick(card);
   };
 
   // Delete Image Toggling
@@ -49,7 +59,13 @@ function NewsCard({ card, onCardSave, isSaved, onDelete, variant }) {
     isHovered && !isSaved ? saveHover : isSaved ? saveActive : saveInactive;
 
   return (
-    <li className="card">
+    <li
+      onClick={handleCardClick}
+      style={{ cursor: "pointer" }}
+      role="button"
+      tabIndex={0}
+      className="card"
+    >
       <img src={card.urlToImage} alt="card image" className="card__img" />
       {isLoggedIn && isSaved && variant ? (
         <button

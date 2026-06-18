@@ -7,7 +7,12 @@ import NewsCard from "./NewsCard";
 // CSS Import
 import "../blocks/newsCardList.css";
 
-function NewsCardList({ articleItems, onCardSave, savedArticleItems }) {
+function NewsCardList({
+  articleItems,
+  onCardSave,
+  savedArticleItems,
+  onCardClick,
+}) {
   const initialLimit = 3;
   const itemsPerLoad = 3;
 
@@ -31,6 +36,7 @@ function NewsCardList({ articleItems, onCardSave, savedArticleItems }) {
               card={card}
               onCardSave={onCardSave}
               isSaved={isSaved}
+              onCardClick={onCardClick}
             />
           );
         })}

@@ -1,6 +1,6 @@
 import NewsCard from "./NewsCard";
 
-function SavedCardList({ savedArticleItems, onDelete, variant }) {
+function SavedCardList({ savedArticleItems, onDelete, onCardClick, variant }) {
   return (
     <>
       <ul className="cards__list">
@@ -14,6 +14,7 @@ function SavedCardList({ savedArticleItems, onDelete, variant }) {
               card={card}
               isSaved={isSaved}
               onDelete={onDelete}
+              onCardClick={onCardClick}
               variant={variant}
             />
           );
