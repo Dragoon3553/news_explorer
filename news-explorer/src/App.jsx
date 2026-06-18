@@ -8,12 +8,12 @@ import SavedPage from "./pages/SavedPage";
 
 // Components
 import Footer from "./components/Footer";
-import SavedArticles from "./components/SavedArticles";
 
 // Modals
 import LoginModal from "./components/LoginModal";
 import SignupModal from "./components/SignupModal";
 import MenuModal from "./components/MenuModal";
+import ConfirmationModal from "./components/ConfirmationModal";
 
 // Contexts
 import LoginContext from "./contexts/LoginContext";
@@ -65,9 +65,8 @@ function App() {
   // Local States
   const [articleItems, setArticleItems] = useState([]);
   const [savedArticleItems, setSavedArticleItems] = useState([]);
-  // const [selectedArticle, setSelectedArticle] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("confirm");
   const [errorMessage, setErrorMessage] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -82,6 +81,7 @@ function App() {
   const handleLoginClick = () => setActiveModal("login");
   const handleRegistrationClick = () => setActiveModal("signup");
   const handleMenuClick = () => setActiveModal("menu");
+  // const handleConfirmClick = () => setActiveModal("confirm");
   const closeActiveModal = () => setActiveModal("");
 
   const handleLogin = (inputValues) => {
@@ -118,7 +118,9 @@ function App() {
     auth
       .register(newUserData)
       .then(() => {
-        return handleLogin(inputValues);
+        console.log(inputValues);
+        setActiveModal("confirm");
+        // return handleLogin(inputValues);
       })
       .catch(console.error);
   };
@@ -240,7 +242,6 @@ function App() {
   }, [location.pathname]);
 
   const handleArticleDelete = (e, article) => {
-    e.stopPropagation();
     const token = getToken();
 
     if (!token) {
@@ -259,7 +260,6 @@ function App() {
   };
 
   const handleSaveToggle = (e, article) => {
-    e.stopPropagation();
     const alreadySaved = savedArticleItems.find(
       (item) => item.url === article.url,
     );
@@ -335,6 +335,8 @@ function App() {
               handleRegistrationClick={handleRegistrationClick}
               handleLogin={handleLogin}
               errorMessage={errorMessage}
+              isMobile={isMobile}
+              setErrorMessage={setErrorMessage}
             />
 
             <SignupModal
@@ -342,6 +344,12 @@ function App() {
               onClose={closeActiveModal}
               handleLoginClick={handleLoginClick}
               handleRegistration={handleRegistration}
+            />
+
+            <ConfirmationModal
+              isOpen={activeModal === "confirm"}
+              onClose={closeActiveModal}
+              handleLoginClick={handleLoginClick}
             />
 
             <MenuModal

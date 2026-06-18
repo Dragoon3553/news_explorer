@@ -48,15 +48,20 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  gap: 31px;
 }
 
 .modal__label {
+  position: relative;
   color: rgba(47, 113, 229, 1);
   font-family: "Inter";
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
+  margin-top: 31px;
+}
+
+.modal__label:first-of-type {
+  margin-top: 0;
 }
 
 .modal__input {
@@ -80,6 +85,16 @@
   display: block;
 }
 
+.modal__error-message {
+  color: rgba(255, 0, 0, 1);
+  font-size: 14px;
+  margin: 17px auto 8px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: max-content;
+}
+
 .modal__buttons {
   display: flex;
   flex-direction: column;
@@ -98,6 +113,7 @@
   background-color: rgba(47, 113, 229, 1);
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
+  margin-top: 39px;
 }
 
 .modal__submit-btn:disabled {
@@ -138,21 +154,22 @@
     width: 24px;
   }
 
-  .modal__form {
-    gap: 23px;
-  }
-
   .modal__label {
-    margin-bottom: 7px;
-  }
-
-  .modal__label:last-of-type {
-    margin-bottom: 0;
+    margin-top: 30px;
   }
 
   .modal__buttons {
     margin: 0 auto;
     max-width: 288px;
     width: 100%;
+  }
+
+  .modal__error-message {
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  .modal__submit-btn {
+    margin-top: 23px;
   }
 }

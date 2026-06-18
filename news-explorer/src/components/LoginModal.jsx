@@ -20,6 +20,8 @@ function LoginModal({
   handleRegistrationClick,
   handleLogin,
   errorMessage,
+  isMobile,
+  setErrorMessage,
 }) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -34,6 +36,7 @@ function LoginModal({
   const handleModalClose = () => {
     resetForm();
     setHasSubmitted(false);
+    setErrorMessage("");
     onClose();
   };
 
@@ -97,8 +100,13 @@ function LoginModal({
         {hasSubmitted && errors.password && (
           <span className="modal__error">{errors.password}</span>
         )}
-        {errorMessage}
+        {isMobile ? (
+          <></>
+        ) : (
+          <span className="modal__error-message">{errorMessage}</span>
+        )}
       </label>
+      {isMobile && <span className="modal__error-message">{errorMessage}</span>}
     </ModalWithForm>
   );
 }
