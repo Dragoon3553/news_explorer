@@ -6,7 +6,7 @@
   height: 576px;
   border-radius: 16px;
   position: relative;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 16px;
   background-color: rgba(255, 255, 255, 1);
@@ -28,7 +28,7 @@
   padding: 8px 22px;
   top: 24px;
   left: 24px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
@@ -41,7 +41,7 @@
   top: 24px;
   right: 69px;
   border-radius: 10px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
@@ -113,7 +113,7 @@
 
 .card__text {
   margin: 16px 0 0;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 22px;
 }

@@ -1,5 +1,5 @@
 .nav {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -30,7 +30,7 @@
 }
 
 .nav__title {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -48,7 +48,7 @@
 }
 
 .nav__item {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
