@@ -65,6 +65,7 @@ function SignupModal({
       onClose={handleModalClose}
       onSubmit={handleSubmit}
       extraButton={loginButton}
+      values={values}
     >
       <label htmlFor="email" className="modal__label">
         Email

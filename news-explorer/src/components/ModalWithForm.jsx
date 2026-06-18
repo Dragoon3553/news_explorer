@@ -10,7 +10,12 @@ function ModalWithForm({
   children,
   onSubmit,
   extraButton,
+  values,
 }) {
+  const isFormFilled = Object.values(values).every(
+    (value) => value && value.trim() !== "",
+  );
+
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
@@ -28,7 +33,11 @@ function ModalWithForm({
         >
           {children}
           <div className="modal__buttons">
-            <button type="submit" className="modal__submit-btn">
+            <button
+              type="submit"
+              className="modal__submit-btn"
+              disabled={!isFormFilled}
+            >
               {buttonText}
             </button>
             {extraButton}

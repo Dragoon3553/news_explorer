@@ -70,6 +70,7 @@ function LoginModal({
       onClose={handleModalClose}
       onSubmit={handleSubmit}
       extraButton={registerButton}
+      values={values}
     >
       <label htmlFor="email" className="modal__label">
         Email
