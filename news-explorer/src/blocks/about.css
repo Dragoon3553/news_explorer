@@ -7,6 +7,7 @@
 .about__img {
   width: 464px;
   height: 464px;
+  border-radius: 100%;
 }
 
 .about__container {
