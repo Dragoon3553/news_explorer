@@ -4,6 +4,10 @@ const reactHooks = require("eslint-plugin-react-hooks");
 const globals = require("globals");
 
 module.exports = [
+  {
+    // Global ignores for the flat config
+    ignores: ["dist/**"],
+  },
   js.configs.recommended,
   {
     files: ["**/*.{js,jsx,cjs,mjs}"],
