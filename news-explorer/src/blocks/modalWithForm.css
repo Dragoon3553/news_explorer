@@ -1,0 +1,179 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__content {
+  background-color: rgba(255, 255, 255, 1);
+  position: relative;
+  border-radius: 16px;
+  padding: 34px 36px 28px;
+  max-width: 430px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title {
+  margin: 0 0 22px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  padding: 0;
+  top: -46px;
+  right: -46px;
+  background: url(../assets/close.png) center no-repeat;
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__label {
+  position: relative;
+  color: rgba(47, 113, 229, 1);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 31px;
+}
+
+.modal__label:first-of-type {
+  margin-top: 0;
+}
+
+.modal__input {
+  display: block;
+  margin: 9px 0 0;
+  padding: 0 0 5px;
+  border: none;
+  border-bottom: solid 1px;
+  width: 100%;
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.modal__error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+.modal__error-message {
+  color: rgba(255, 0, 0, 1);
+  font-size: 14px;
+  margin: 17px auto 8px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: max-content;
+}
+
+.modal__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal__submit-btn {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 360px;
+  padding: 20px 0;
+  border-radius: 100px;
+  border: none;
+  background-color: rgba(47, 113, 229, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  margin-top: 39px;
+}
+
+.modal__submit-btn:disabled {
+  background-color: rgba(230, 232, 235, 1);
+  color: rgba(182, 188, 191, 1);
+  cursor: not-allowed;
+}
+
+.modal__signup-text {
+  color: rgba(47, 113, 229, 1);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 575px) {
+  .modal {
+    background-color: transparent;
+  }
+
+  .modal__content {
+    max-width: none;
+    width: 100%;
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 16px;
+  }
+
+  .modal__title {
+    margin-bottom: 18px;
+  }
+
+  .modal__close-btn {
+    background: url(../assets/mobile_close.png) center no-repeat;
+    top: -40px;
+    right: 16px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .modal__label {
+    margin-top: 30px;
+  }
+
+  .modal__buttons {
+    margin: 0 auto;
+    max-width: 288px;
+    width: 100%;
+  }
+
+  .modal__error-message {
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  .modal__submit-btn {
+    margin-top: 23px;
+  }
+}
