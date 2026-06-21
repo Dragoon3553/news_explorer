@@ -17,4 +17,4 @@ The app uses the News API to find relevant articles over the last week based on 
 ### Deployment / Links
 
 - [Deployment Link](https://dragoon3553.github.io/news_explorer/)
-- Check out this video, where I describe the project and some challenges that I faced while building it.
+- Check out [this video](https://www.loom.com/share/2c29c930f3924b9c9eac7ae18d4b6057A), where I describe the project and some challenges that I faced while building it.

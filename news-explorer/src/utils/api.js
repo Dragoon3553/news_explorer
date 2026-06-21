@@ -48,7 +48,7 @@ export function getItems() {
 
 // saveArticle accepts an article object as an argument and pretends to save it to
 // the DB. It returns a promise that resolves to the 'saved' article, and an _id
-// field to it. add this article to your array of saved news items.
+// field to it.
 
 export function saveArticle(article) {
   const savedArticle = {
